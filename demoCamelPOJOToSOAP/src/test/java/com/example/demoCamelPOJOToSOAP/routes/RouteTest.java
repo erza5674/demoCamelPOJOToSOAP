@@ -1,7 +1,9 @@
 package com.example.demoCamelPOJOToSOAP.routes;
 
+import com.example.demoCamelPOJOToSOAP.exceptions.NoSuchCountryException;
 import com.example.demoCamelPOJOToSOAP.service.Country;
 import com.example.demoCamelPOJOToSOAP.service.CountryService;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.apache.cxf.frontend.ClientProxyFactoryBean;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -38,5 +40,13 @@ public class RouteTest {
         Country countryRes = countryService.getCountryByName("Russia");
 
         Assertions.assertThat(country.getName()).isEqualTo(countryRes.getName());
+    }
+
+    @Test
+    public void serviceExceptionTest(){
+        CountryService countryService = createCXFClient();
+        Assertions.assertThatThrownBy(() ->countryService.getCountryByName("none"));
+        Assertions.assertThatException().isThrownBy(()->countryService.getCountryByName("rer"));
+
     }
 }
