@@ -1,0 +1,8 @@
+spring.application.name=demoCamelPOJOToSOAP
+camel.springboot.name = MyCamel
+camel.springboot.main-run-controller=true
+
+#logging.level.root=TRACE
+
+management.endpoint.metrics.enabled=true
+management.endpoints.web.exposure.include=*

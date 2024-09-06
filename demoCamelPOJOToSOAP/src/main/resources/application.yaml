@@ -1,0 +1,21 @@
+# Порт http сервера
+server:
+  port: ${SERVICE_PORT:8080}
+
+service:
+  inbound:
+    username: user
+    useradd: "1"
+
+spring:
+  application:
+        name: 'demoCamelPOJOToSOAP'
+
+camel:
+  springboot:
+          name: "MyCamel"
+          main-run-controller: true
+
+logging:
+   level:
+     root: INFO
