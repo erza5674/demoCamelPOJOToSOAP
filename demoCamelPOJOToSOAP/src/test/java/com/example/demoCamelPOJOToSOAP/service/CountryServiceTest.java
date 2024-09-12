@@ -1,9 +1,7 @@
-package com.example.demoCamelPOJOToSOAP.routes;
+package com.example.demoCamelPOJOToSOAP.service;
 
 import com.example.demoCamelPOJOToSOAP.exceptions.NoSuchCountryException;
-import com.example.demoCamelPOJOToSOAP.service.Country;
-import com.example.demoCamelPOJOToSOAP.service.CountryService;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import org.apache.cxf.binding.soap.SoapFault;
 import org.apache.cxf.frontend.ClientProxyFactoryBean;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -11,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class RouteTest {
+public class CountryServiceTest {
 
     @LocalServerPort
     private int port;
@@ -39,13 +37,17 @@ public class RouteTest {
 
         Country countryRes = countryService.getCountryByName("Russia");
 
+        Assertions.assertThat(countryService.getCountryByName("Russia")).isNotNull();
+
         Assertions.assertThat(country.getName()).isEqualTo(countryRes.getName());
     }
 
     @Test
     public void serviceExceptionTest(){
         CountryService countryService = createCXFClient();
-        Assertions.assertThatThrownBy(() ->countryService.getCountryByName("none"));
+
+        Assertions.assertThatThrownBy(() -> countryService.getCountryByName("none")).isInstanceOf(SoapFault.class);
+
         Assertions.assertThatException().isThrownBy(()->countryService.getCountryByName("rer"));
 
     }
