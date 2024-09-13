@@ -1,22 +1,20 @@
 package com.example.demoCamelPOJOToSOAP;
 
-import com.tngtech.keycloakmock.api.KeycloakMock;
-import com.tngtech.keycloakmock.api.ServerConfig;
-import io.restassured.RestAssured;
+import com.example.demoCamelPOJOToSOAP.extensions.NoKeepAliveTransformer;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import org.springframework.boot.test.autoconfigure.actuate.observability.AutoConfigureObservability;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-@AutoConfigureMockMvc
-@AutoConfigureObservability
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+//@AutoConfigureMockMvc
+//@AutoConfigureObservability
 public class AbstractTest {
 
-    public final static KeycloakMock keycloackMockServer;
+    protected final static WireMockExtension toServiceMockServer = WireMockExtension.newInstance()
+            .options(wireMockConfig().port(34001).globalTemplating(true).extensions(NoKeepAliveTransformer.class))
+            .configureStaticDsl(true).build();
 
-    static {
-        RestAssured.baseURI = "http://localhost";
-
-        keycloackMockServer = new KeycloakMock( ServerConfig.aServerConfig().withPort(34009).withDefaultRealm("DEV").build());
-    }
 }
