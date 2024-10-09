@@ -34,6 +34,23 @@ public class RoutePOJOtoSOAP extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
+
+        onException(Exception.class)
+                .log("BEEEEEEEEEEEEEEP")
+                .process((exchange)->{
+                    System.out.println("im called from lambda processor");
+
+                    var headers = exchange.getIn().getHeaders().toString();
+                    var body    = exchange.getIn().getBody().toString();
+                    System.out.println("HEADERS: " + headers);
+                    System.out.println("BODY: " + body);
+                } )
+                .handled(true);
+
+        onException(IllegalArgumentException.class)
+                .log("Illegal Argument BEEEEEEEEEEEEEEEEP")
+                .handled(true);
+
         from("cxf:bean:country")
                 .log("take me home")
                 .routeId("CountryRoute")

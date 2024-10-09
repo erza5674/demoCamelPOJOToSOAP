@@ -1,0 +1,34 @@
+
+#server:
+#  ssl:
+#    enabled: false
+#
+#camel:
+#  component:
+#    http:
+#      so-timeout: 1000
+
+#security-whitelist:
+#  location: src/test/resources/whitelist.json
+
+#service:
+#  to-uri: http://0.0.0.0:34001/
+#  basic-allowed-path-patterns: /api/simpleRoute/simple/basic/**
+#  to-auth:
+#    type: Basic
+#    login: login
+#    password: ohD&u&2eiy2Ui2uem&
+#  readiness-url: http://0.0.0.0:34001/readiness
+
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          esb-token-provider:
+            token-uri: http://localhost:34009/auth/realms/DEV/protocol/openid-connect/token
+
+keycloak:
+  certs-url: http://localhost:34009/auth/realms/DEV/protocol/openid-connect/certs
+  basic:
+    token-url: http://localhost:34009/auth/realms/DEV/protocol/openid-connect/token

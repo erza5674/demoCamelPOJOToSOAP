@@ -19,3 +19,6 @@ camel:
 logging:
    level:
      root: INFO
+
+hawtio:
+  authenticationEnabled: false

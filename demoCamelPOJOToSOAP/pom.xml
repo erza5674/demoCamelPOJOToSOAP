@@ -29,23 +29,46 @@
 	<properties>
 		<java.version>17</java.version>
 		<camel.version>4.6.0</camel.version>
+		<hawtio.version>4.0-M4</hawtio.version>
 		<lombok.version>1.18.30</lombok.version>
 	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<!-- CVE-2024-22201 -->
+			<dependency>
+				<groupId>org.eclipse.jetty.http2</groupId>
+				<artifactId>http2-common</artifactId>
+				<version> 11.0.20</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
+		<!--spring boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- apache camel-->
+		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-spring-boot-starter</artifactId>
 			<version>${camel.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
-			<version>4.0.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
@@ -53,20 +76,38 @@
 			<version>${camel.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-http-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-endpointdsl</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-management</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-direct</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+
+
+		<!-- apache cxf -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+			<version>4.0.4</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- security -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
 		<!-- тестирование -->
@@ -87,7 +128,6 @@
 			<artifactId>assertj-core</artifactId>
 			<version>3.24.2</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-test-spring-junit5</artifactId>
@@ -95,23 +135,12 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- скопировал у дрп -->
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-endpointdsl</artifactId>
-			<version>${camel.version}</version>
-		</dependency>
 
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-management</artifactId>
-			<version>${camel.version}</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.wiremock</groupId>
-			<artifactId>wiremock</artifactId>
-			<version>3.3.1</version>
+			<artifactId>wiremock-standalone</artifactId>
+			<version>3.8.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -144,15 +173,17 @@
 			<version>${camel.version}</version>
 			<scope>test</scope>
 		</dependency>
-
-		<!--
 		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-endpointdsl</artifactId>
-			<version>4.2.0</version>
-			<scope>test</scope>
+			<artifactId>camel-http</artifactId>
+			<version>4.6.0</version>
 		</dependency>
-		-->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-oauth2-client</artifactId>
+			<version>6.1.6</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
