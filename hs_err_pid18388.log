@@ -1,0 +1,1644 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x0000021e802aa7f4, pid=18388, tid=13824
+#
+# JRE version: OpenJDK Runtime Environment Corretto-17.0.12.7.1 (17.0.12+7) (build 17.0.12+7-LTS)
+# Java VM: OpenJDK 64-Bit Server VM Corretto-17.0.12.7.1 (17.0.12+7-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# J 6398 c1 com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl.setUserData(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object; java.xml@17.0.12 (179 bytes) @ 0x0000021e802aa7f4 [0x0000021e802a9ae0+0x0000000000000d14]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/corretto/corretto-17/issues/
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:53649,suspend=y,server=n -javaagent:C:\Users\erza5\AppData\Local\JetBrains\IdeaIC2024.2\captureAgent\debugger-agent.jar=file:/C:/Users/erza5/AppData/Local/Temp/capture.props -Dkotlinx.coroutines.debug.enable.creation.stack.trace=false -Ddebugger.agent.enable.coroutines=true -Dfile.encoding=UTF-8 com.example.demoCamelPOJOToSOAP.DemoCamelPojoToSoapApplication
+
+Host: AMD Ryzen 7 7700 8-Core Processor              , 16 cores, 47G,  Windows 11 , 64 bit Build 22621 (10.0.22621.4391)
+Time: Wed Nov 20 10:16:01 2024 RTZ 4 (s 11 , 64 bit Build 22621 (10.0.22621.4391) elapsed time: 3.598452 seconds (0d 0h 0m 3s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000021ef6f79c50):  JavaThread "main" [_thread_in_Java, id=13824, stack(0x000000433ce00000,0x000000433cf00000)]
+
+Stack: [0x000000433ce00000,0x000000433cf00000],  sp=0x000000433cefcfd0,  free space=1011k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x0000021e802aa7f4
+
+The last pc belongs to nmethod (printed below).
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0x0000021ef25807fc
+
+
+Registers:
+RAX=0x0000000533d5a1a8, RBX=0x0000000533cd4f00, RCX=0x0000000000000000, RDX=0x0000021eaf671e30
+RSP=0x000000433cefcfd0, RBP=0x000000433cefd2b0, RSI=0x0000000533ce6a20, RDI=0x0000000533d5a1c0
+R8 =0x0000021ef1d80730, R9 =0x0000021ef1d80250, R10=0x0000021eae000000, R11=0x0000000533d5a138
+R12=0x0000000000000000, R13=0x0000000533ce6a20, R14=0x0000000533d5a158, R15=0x0000021ef6f79c50
+RIP=0x0000021e802aa7f4, EFLAGS=0x0000000000010206
+
+
+Register to memory mapping:
+
+RIP=0x0000021e802aa7f4 is at entry_point+3348 in (nmethod*)0x0000021e802a9810
+Compiled method (c1)    3602 6398       3       com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData (179 bytes)
+ total in heap  [0x0000021e802a9810,0x0000021e802ab4d0] = 7360
+ relocation     [0x0000021e802a9968,0x0000021e802a9ad0] = 360
+ main code      [0x0000021e802a9ae0,0x0000021e802aaf00] = 5152
+ stub code      [0x0000021e802aaf00,0x0000021e802aaf98] = 152
+ metadata       [0x0000021e802aaf98,0x0000021e802aafc8] = 48
+ scopes data    [0x0000021e802aafc8,0x0000021e802ab250] = 648
+ scopes pcs     [0x0000021e802ab250,0x0000021e802ab480] = 560
+ dependencies   [0x0000021e802ab480,0x0000021e802ab490] = 16
+ nul chk table  [0x0000021e802ab490,0x0000021e802ab4d0] = 64
+RAX=0x0000000533d5a1a8 is an oop: com.sun.org.apache.xerces.internal.dom.ParentNode$UserDataRecord 
+{0x0000000533d5a1a8} - klass: 'com/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord'
+ - ---- fields (total size 3 words):
+ - 'fData' 'Ljava/lang/Object;' @12  NULL (0)
+ - 'fHandler' 'Lorg/w3c/dom/UserDataHandler;' @16  NULL (0)
+ - final synthetic 'this$0' 'Lcom/sun/org/apache/xerces/internal/dom/ParentNode;' @20  NULL (0)
+RBX=0x0000000533cd4f00 is an oop: com.sun.org.apache.xerces.internal.dom.DocumentImpl 
+{0x0000000533cd4f00} - klass: 'com/sun/org/apache/xerces/internal/dom/DocumentImpl'
+ - ---- fields (total size 16 words):
+ - protected 'flags' 'S' @12  0
+ - protected 'ownerNode' 'Lcom/sun/org/apache/xerces/internal/dom/NodeImpl;' @16  NULL (0)
+ - protected 'previousSibling' 'Lcom/sun/org/apache/xerces/internal/dom/ChildNode;' @20  NULL (0)
+ - protected 'nextSibling' 'Lcom/sun/org/apache/xerces/internal/dom/ChildNode;' @24  NULL (0)
+ - protected 'ownerDocument' 'Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;' @28  a 'com/sun/org/apache/xerces/internal/dom/DocumentImpl'{0x0000000533cd4f00} (a679a9e0)
+ - protected 'firstChild' 'Lcom/sun/org/apache/xerces/internal/dom/ChildNode;' @32  a 'com/sun/org/apache/xerces/internal/dom/ElementNSImpl'{0x0000000533ce1108} (a679c221)
+ - protected transient 'fNodeListCache' 'Lcom/sun/org/apache/xerces/internal/dom/NodeListCache;' @36  NULL (0)
+ - protected 'standalone' 'Z' @14  false
+ - protected 'allowGrammarAccess' 'Z' @15  false
+ - protected 'changes' 'I' @40  817 (331)
+ - private 'documentNumber' 'I' @44  0
+ - private 'nodeCounter' 'I' @48  0
+ - protected 'errorChecking' 'Z' @52  true
+ - protected 'ancestorChecking' 'Z' @53  true
+ - protected 'xmlVersionChanged' 'Z' @54  false
+ - private 'xml11Version' 'Z' @55  false
+ - protected 'docType' 'Lcom/sun/org/apache/xerces/internal/dom/DocumentTypeImpl;' @56  NULL (0)
+ - protected 'docElement' 'Lcom/sun/org/apache/xerces/internal/dom/ElementImpl;' @60  a 'com/sun/org/apache/xerces/internal/dom/ElementNSImpl'{0x0000000533ce1108} (a679c221)
+ - transient 'fFreeNLCache' 'Lcom/sun/org/apache/xerces/internal/dom/NodeListCache;' @64  NULL (0)
+ - protected 'encoding' 'Ljava/lang/String;' @68  NULL (0)
+ - protected 'actualEncoding' 'Ljava/lang/String;' @72  NULL (0)
+ - protected 'version' 'Ljava/lang/String;' @76  NULL (0)
+ - protected 'fDocumentURI' 'Ljava/lang/String;' @80  "file:/C:/Users/erza5/Desktop/java/demoCamelPOJOToSOAP/demoCamelPOJOToSOAP/target/classes/wsdl/CountryInfoService.wsdl"{0x00000005339b8fa0} (a67371f4)
+ - private 'nodeUserData' 'Ljava/util/Map;' @84  a 'java/util/HashMap'{0x0000000533ce6a30} (a679cd46)
+ - protected 'identifiers' 'Ljava/util/Map;' @88  NULL (0)
+ - transient 'domNormalizer' 'Lcom/sun/org/apache/xerces/internal/dom/DOMNormalizer;' @92  NULL (0)
+ - transient 'fConfiguration' 'Lcom/sun/org/apache/xerces/internal/dom/DOMConfigurationImpl;' @96  NULL (0)
+ - transient 'fXPathEvaluator' 'Ljava/lang/Object;' @100  NULL (0)
+ - private 'nodeTable' 'Ljava/util/Map;' @104  NULL (0)
+ - protected 'mutationEvents' 'Z' @108  false
+ - protected 'iterators' 'Ljava/util/List;' @112  NULL (0)
+ - protected 'ranges' 'Ljava/util/List;' @116  NULL (0)
+ - protected 'eventListeners' 'Ljava/util/Map;' @120  NULL (0)
+ - 'savedEnclosingAttr' 'Lcom/sun/org/apache/xerces/internal/dom/DocumentImpl$EnclosingAttr;' @124  NULL (0)
+RCX=0x0 is NULL
+RDX=0x0000021eaf671e30 is a pointer to class: 
+com.sun.org.apache.xerces.internal.dom.ParentNode$UserDataRecord {0x0000021eaf671e38}
+ - instance size:     3
+ - klass size:        65
+ - access:            synchronized 
+ - state:             fully_initialized
+ - name:              'com/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord'
+ - super:             'java/lang/Object'
+ - sub:               
+ - arrays:            NULL
+ - methods:           Array<T>(0x0000021ef1d784c8)
+ - method ordering:   Array<T>(0x0000021ef1d785c8)
+ - default_methods:   Array<T>(0x0000000000000000)
+ - local interfaces:  Array<T>(0x0000021ef1d78480)
+ - trans. interfaces: Array<T>(0x0000021ef1d78480)
+ - constants:         constant pool [43] {0x0000021ef1d782c0} for 'com/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord' cache=0x0000021ef1d785d8
+ - class loader data:  loader data: 0x0000021ef4efef20 of 'bootstrap'
+ - source file:       'ParentNode.java'
+ - class annotations:       Array<T>(0x0000000000000000)
+ - class type annotations:  Array<T>(0x0000000000000000)
+ - field annotations:       Array<T>(0x0000000000000000)
+ - field type annotations:  Array<T>(0x0000000000000000)
+ - inner classes:     Array<T>(0x0000021ef1d785b0)
+ - nest members:     Array<T>(0x0000021eae5cc630)
+ - permitted subclasses:     Array<T>(0x0000021eae5cc630)
+ - java mirror:       a 'java/lang/Class'{0x0000000533ce6f28} = 'com/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord'
+ - vtable length      5  (start addr: 0x0000021eaf671ff8)
+ - itable length      2 (start addr: 0x0000021eaf672020)
+ - ---- static fields (1 words):
+ - private static final 'serialVersionUID' 'J' @112 
+ - ---- non-static fields (3 words):
+ - 'fData' 'Ljava/lang/Object;' @12 
+ - 'fHandler' 'Lorg/w3c/dom/UserDataHandler;' @16 
+ - final synthetic 'this$0' 'Lcom/sun/org/apache/xerces/internal/dom/ParentNode;' @20 
+ - non-static oop maps: 12-20 
+RSP=0x000000433cefcfd0 is pointing into the stack for thread: 0x0000021ef6f79c50
+RBP=0x000000433cefd2b0 is pointing into the stack for thread: 0x0000021ef6f79c50
+RSI=0x0000000533ce6a20 is an oop: org.apache.cxf.staxutils.StaxUtils$LocationUserDataHandler 
+{0x0000000533ce6a20} - klass: 'org/apache/cxf/staxutils/StaxUtils$LocationUserDataHandler'
+ - ---- fields (total size 2 words):
+RDI=
+[error occurred during error reporting (printing register info), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffc66dd5b0a]
+
+Top of Stack: (sp=0x000000433cefcfd0)
+0x000000433cefcfd0:   0000021ef0906330 0000021ef6f79c50
+0x000000433cefcfe0:   0000021e00000020 0000000533bc47e8
+0x000000433cefcff0:   000000433cefd070 0000021e8745a344
+0x000000433cefd000:   000000433cefd2b0 0000021e80001ab4
+0x000000433cefd010:   0000021e87458e10 0000000533ce1108
+0x000000433cefd020:   0000000533cd4f00 0000000533d5a0e8
+0x000000433cefd030:   0000004300000000 0000021e80572c4c
+0x000000433cefd040:   00000005050c3470 0000000533cd4f00
+0x000000433cefd050:   0000000533d5a0e8 0000000533d5a138
+0x000000433cefd060:   0000000533ce6a20 0000021e800eb384
+0x000000433cefd070:   000000050000000d 0000000533d5a158
+0x000000433cefd080:   000000433cefd2b0 0000021e809e4774
+0x000000433cefd090:   000000433cefd2b0 0000021e801a361c
+0x000000433cefd0a0:   000000433cefd1c0 00007ffc66e8433d
+0x000000433cefd0b0:   0000000533c2ba01 0000021e801a5f6c
+0x000000433cefd0c0:   0000021ef0906330 0000000000000000
+0x000000433cefd0d0:   0000000533d5a0e8 00000005050c3470
+0x000000433cefd0e0:   0000000533d5a138 0000000533ce6a20
+0x000000433cefd0f0:   0000000000000001 0000000533d5a0e8
+0x000000433cefd100:   000000433cefd2b0 0000021e800c8e84
+0x000000433cefd110:   0000000d00000178 0000000533cd4f00
+0x000000433cefd120:   0000000d00000001 0000000533d5a0e8
+0x000000433cefd130:   0000000533d5a108 0000000000000000
+0x000000433cefd140:   0000000000000000 0000021e87459f1c
+0x000000433cefd150:   0000021ef0906330 0000021e87459f1c
+0x000000433cefd160:   000000433cefd2b0 0000021e8021d2dc
+0x000000433cefd170:   0000000533d5a108 0000000533cd4f00
+0x000000433cefd180:   0000000533d5a0e8 0000397500000001
+0x000000433cefd190:   000001780000000d 00000005339b8fa0
+0x000000433cefd1a0:   0000000533d5a138 00000005339b8fa0
+0x000000433cefd1b0:   0000000000000000 0000000533ce1108
+0x000000433cefd1c0:   000000433cefd2b0 0000021e8023a1cc 
+
+Instructions: (pc=0x0000021e802aa7f4)
+0x0000021e802aa6f4:   4d 89 81 b0 03 00 00 49 c7 81 b8 03 00 00 01 00
+0x0000021e802aa704:   00 00 e9 2c 00 00 00 49 81 b9 c0 03 00 00 00 00
+0x0000021e802aa714:   00 00 75 17 4d 89 81 c0 03 00 00 49 c7 81 c8 03
+0x0000021e802aa724:   00 00 01 00 00 00 e9 08 00 00 00 49 83 81 a0 03
+0x0000021e802aa734:   00 00 01 4c 8b 84 24 80 00 00 00 4c 8b c8 48 89
+0x0000021e802aa744:   84 24 a8 00 00 00 66 66 90 48 b8 a0 44 0b ae 1e
+0x0000021e802aa754:   02 00 00 e8 c4 46 a8 07 48 8b 84 24 a8 00 00 00
+0x0000021e802aa764:   48 8b b4 24 90 00 00 00 48 8b bc 24 88 00 00 00
+0x0000021e802aa774:   48 8b 54 24 78 48 8b da 48 ba 30 1e 67 af 1e 02
+0x0000021e802aa784:   00 00 4c 8b f0 4c 8b ee 4c 8b df 49 8b 87 08 01
+0x0000021e802aa794:   00 00 48 8d 78 18 49 3b bf 18 01 00 00 0f 87 ae
+0x0000021e802aa7a4:   05 00 00 49 89 bf 08 01 00 00 48 c7 00 01 00 00
+0x0000021e802aa7b4:   00 48 8b ca 49 ba 00 00 00 ae 1e 02 00 00 49 2b
+0x0000021e802aa7c4:   ca 89 48 08 48 33 c9 89 48 0c 48 33 c9 48 89 48
+0x0000021e802aa7d4:   10 4c 8b c0 49 b9 50 02 d8 f1 1e 02 00 00 49 83
+0x0000021e802aa7e4:   81 d8 03 00 00 01 49 b8 30 07 d8 f1 1e 02 00 00
+0x0000021e802aa7f4:   45 8b 88 cc 00 80 00 41 83 c1 02 45 89 88 cc 00
+0x0000021e802aa804:   00 00 41 81 e1 fe ff 1f 00 41 83 f9 00 0f 84 4b
+0x0000021e802aa814:   05 00 00 45 0f be 47 38 41 83 f8 00 0f 85 5d 05
+0x0000021e802aa824:   00 00 4c 8b d3 49 c1 ea 03 44 89 50 14 4c 8b c0
+0x0000021e802aa834:   4c 33 c3 49 c1 e8 17 49 83 f8 00 0f 85 5e 05 00
+0x0000021e802aa844:   00 4c 8b c0 49 b9 30 07 d8 f1 1e 02 00 00 49 83
+0x0000021e802aa854:   81 10 01 00 00 01 49 b8 80 77 00 ef 1e 02 00 00
+0x0000021e802aa864:   45 8b 88 cc 00 00 00 41 83 c1 02 45 89 88 cc 00
+0x0000021e802aa874:   00 00 41 81 e1 fe ff 1f 00 41 83 f9 00 0f 84 34
+0x0000021e802aa884:   05 00 00 45 0f be 47 38 41 83 f8 00 0f 85 46 05
+0x0000021e802aa894:   00 00 4d 8b d3 49 c1 ea 03 44 89 50 0c 4c 8b c0
+0x0000021e802aa8a4:   4d 33 c3 49 c1 e8 17 49 83 f8 00 0f 85 47 05 00
+0x0000021e802aa8b4:   00 45 0f be 47 38 41 83 f8 00 0f 85 50 05 00 00
+0x0000021e802aa8c4:   4d 8b d5 49 c1 ea 03 44 89 50 10 4c 8b c0 4d 33
+0x0000021e802aa8d4:   c5 49 c1 e8 17 49 83 f8 00 0f 85 51 05 00 00 49
+0x0000021e802aa8e4:   3b 06 4d 8b c6 49 b9 50 02 d8 f1 1e 02 00 00 45 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: {method} {0x0000021ef0906338} '<init>' '(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;)V' in 'com/sun/org/apache/xerces/internal/dom/TextImpl'
+stack at sp + 1 slots: 0x0000021ef6f79c50 is a thread
+stack at sp + 2 slots: 0x0000021e00000020 is an unknown value
+stack at sp + 3 slots: 0x0000000533bc47e8 is an oop: java.lang.Class 
+{0x0000000533bc47e8} - klass: 'java/lang/Class'
+ - ---- fields (total size 18 words):
+ - private volatile transient 'classRedefinedCount' 'I' @12  0
+ - private volatile transient 'cachedConstructor' 'Ljava/lang/reflect/Constructor;' @40  NULL (0)
+ - private transient 'name' 'Ljava/lang/String;' @44  "com.ctc.wstx.sr.StreamScanner"{0x0000000533bc4888} (a6778911)
+ - private transient 'module' 'Ljava/lang/Module;' @48  a 'java/lang/Module'{0x0000000504822c10} (a0904582)
+ - private final 'classLoader' 'Ljava/lang/ClassLoader;' @52  a 'jdk/internal/loader/ClassLoaders$AppClassLoader'{0x0000000504800000} (a0900000)
+ - private transient 'classData' 'Ljava/lang/Object;' @56  NULL (0)
+ - private transient 'packageName' 'Ljava/lang/String;' @60  "com.ctc.wstx.sr"{0x00000005341c32f8} (a683865f)
+ - private final 'componentType' 'Ljava/lang/Class;' @64  NULL (0)
+ - private volatile transient 'reflectionData' 'Ljava/lang/ref/SoftReference;' @68  NULL (0)
+ - private volatile transient 'genericInfo' 'Lsun/reflect/generics/repository/ClassRepository;' @72  NULL (0)
+ - private volatile transient 'enumConstants' '[Ljava/lang/Object;' @76  NULL (0)
+ - private volatile transient 'enumConstantDirectory' 'Ljava/util/Map;' @80  NULL (0)
+ - private volatile transient 'annotationData' 'Ljava/lang/Class$AnnotationData;' @84  NULL (0)
+ - private volatile transient 'annotationType' 'Lsun/reflect/annotation/AnnotationType;' @88  NULL (0)
+ - transient 'classValueMap' 'Ljava/lang/ClassValue$ClassValueMap;' @92  NULL (0)
+ - signature: Lcom/ctc/wstx/sr/StreamScanner;
+ - fake entry for mirror: 'com/ctc/wstx/sr/StreamScanner'
+ - fake entry for array: NULL
+ - fake entry for oop_size: 18
+ - fake entry for static_oop_field_count: 2
+ - public static final 'CHAR_CR_LF_OR_NULL' 'C' @132    13 (d)
+ - public static final 'INT_CR_LF_OR_NULL' 'I' @120  13 (d)
+ - protected static final 'CHAR_FIRST_PURE_TEXT' 'C' @134  ? 63 (3f)
+ - protected static final 'CHAR_LOWEST_LEGAL_LOCALNAME_CHAR' 'C' @136  - 45 (2d)
+ - private static final 'VALID_CHAR_COUNT' 'I' @124  256 (100)
+ - private static final 'NAME_CHAR_INVALID_B' 'B' @138  0
+ - private static final 'NAME_CHAR_ALL_VALID_B' 'B' @139  1
+ - private static final 'NAME_CHAR_VALID_NONFIRST_B' 'B' @140  -1 (ffffffff)
+ - private static final 'sCharValidity' '[B' @112  [B{0x0000000533c2b920} (a6785724)
+ - private static final 'VALID_PUBID_CHAR_COUNT' 'I' @128  128 (80)
+ - private static final 'sPubidValidity' '[B' @116  [B{0x0000000533c2ba30} (a6785746)
+ - private static final 'PUBID_CHAR_VALID_B' 'B' @141  1
+stack at sp + 4 slots: 0x000000433cefd070 is pointing into the stack for thread: 0x0000021ef6f79c50
+stack at sp + 5 slots: 0x0000021e8745a344 is at code_begin+4580 in an Interpreter codelet
+return entry points  [0x0000021e87459160, 0x0000021e8745b3c0]  8800 bytes
+stack at sp + 6 slots: 0x000000433cefd2b0 is pointing into the stack for thread: 0x0000021ef6f79c50
+stack at sp + 7 slots: 0x0000021e80001ab4 is at entry_point+916 in (nmethod*)0x0000021e80001510
+Compiled method (c1)    3614 6392       3       com.sun.org.apache.xerces.internal.dom.ParentNode::checkNormalizationAfterInsert (63 bytes)
+ total in heap  [0x0000021e80001510,0x0000021e800020e0] = 3024
+ relocation     [0x0000021e80001668,0x0000021e80001720] = 184
+ main code      [0x0000021e80001720,0x0000021e80001e80] = 1888
+ stub code      [0x0000021e80001e80,0x0000021e80001f08] = 136
+ metadata       [0x0000021e80001f08,0x0000021e80001f28] = 32
+ scopes data    [0x0000021e80001f28,0x0000021e80001fd0] = 168
+ scopes pcs     [0x0000021e80001fd0,0x0000021e800020b0] = 224
+ dependencies   [0x0000021e800020b0,0x0000021e800020c0] = 16
+ nul chk table  [0x0000021e800020c0,0x0000021e800020e0] = 32
+
+
+Compiled method (c1)    3614 6398       3       com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData (179 bytes)
+ total in heap  [0x0000021e802a9810,0x0000021e802ab4d0] = 7360
+ relocation     [0x0000021e802a9968,0x0000021e802a9ad0] = 360
+ main code      [0x0000021e802a9ae0,0x0000021e802aaf00] = 5152
+ stub code      [0x0000021e802aaf00,0x0000021e802aaf98] = 152
+ metadata       [0x0000021e802aaf98,0x0000021e802aafc8] = 48
+ scopes data    [0x0000021e802aafc8,0x0000021e802ab250] = 648
+ scopes pcs     [0x0000021e802ab250,0x0000021e802ab480] = 560
+ dependencies   [0x0000021e802ab480,0x0000021e802ab490] = 16
+ nul chk table  [0x0000021e802ab490,0x0000021e802ab4d0] = 64
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl'
+  # this:     rdx:rdx   = 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl'
+  # parm0:    r8:r8     = 'org/w3c/dom/Node'
+  # parm1:    r9:r9     = 'java/lang/String'
+  # parm2:    rdi:rdi   = 'java/lang/Object'
+  # parm3:    rsi:rsi   = 'org/w3c/dom/UserDataHandler'
+  #           [sp+0xd0]  (sp of caller)
+  0x0000021e802a9ae0: 448b 5208 | 49bb 0000 | 00ae 1e02 | 0000 4d03 | d34c 3bd0 
+
+  0x0000021e802a9af4: ;   {runtime_call ic_miss_stub}
+  0x0000021e802a9af4: 0f85 867a | 1f07 660f | 1f44 0000 
+[Verified Entry Point]
+  0x0000021e802a9b00: 8984 2400 | 90ff ff55 | 4881 ecc0 | 0000 0048 | 8954 2478 | 4889 bc24 | 8800 0000 | 4889 b424 
+  0x0000021e802a9b20: 9000 0000 
+
+  0x0000021e802a9b24: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9b24: 48bb 5002 | d8f1 1e02 | 0000 8b83 | cc00 0000 | 83c0 0289 | 83cc 0000 | 0081 e0fe | 0700 0083 
+  0x0000021e802a9b44: f800 0f84 | 3210 0000 | 4883 ff00 
+
+  0x0000021e802a9b50: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9b50: 48bb 5002 | d8f1 1e02 | 0000 48b8 | 1001 0000 | 0000 0000 | 0f85 0a00 | 0000 48b8 | 2001 0000 
+  0x0000021e802a9b70: 0000 0000 | 488b 0c03 | 488d 4901 | 4889 0c03 | 0f85 3e04 | 0000 8b5a | 5448 c1e3 | 0348 83fb 
+  0x0000021e802a9b90: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9b90: 0048 b850 | 02d8 f11e | 0200 0048 | b930 0100 | 0000 0000 | 000f 840a | 0000 0048 | b940 0100 
+  0x0000021e802a9bb0: 0000 0000 | 004c 8b1c | 084d 8d5b | 014c 891c | 080f 844d | 0f00 004c | 894c 2470 
+
+  0x0000021e802a9bcc: ; implicit exception: dispatches to 0x0000021e802aab9f
+  0x0000021e802a9bcc: 483b 0348 
+
+  0x0000021e802a9bd0: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9bd0: 8bc3 48b9 | 5002 d8f1 | 1e02 0000 | 8b40 0849 | ba00 0000 | ae1e 0200 | 0049 03c2 | 483b 8160 
+  0x0000021e802a9bf0: 0100 0075 | 0d48 8381 | 6801 0000 | 01e9 6600 | 0000 483b | 8170 0100 | 0075 0d48 | 8381 7801 
+  0x0000021e802a9c10: 0000 01e9 | 5000 0000 | 4881 b960 | 0100 0000 | 0000 0075 | 1748 8981 | 6001 0000 | 48c7 8168 
+  0x0000021e802a9c30: 0100 0001 | 0000 00e9 | 2c00 0000 | 4881 b970 | 0100 0000 | 0000 0075 | 1748 8981 | 7001 0000 
+  0x0000021e802a9c50: 48c7 8178 | 0100 0001 | 0000 00e9 | 0800 0000 | 4883 8150 | 0100 0001 | 498b c04c | 8bc0 488b 
+  0x0000021e802a9c70: d348 8984 | 2480 0000 | 000f 1f40 | 0048 b8ff | ffff ffff 
+
+  0x0000021e802a9c84: ;   {virtual_call}
+  0x0000021e802a9c84: ffff ffe8 
+
+  0x0000021e802a9c88: ; ImmutableOopMap {[120]=Oop [128]=Oop [144]=Oop [136]=Oop [112]=Oop }
+                      ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@16 (line 2327)
+  0x0000021e802a9c88: f483 1f07 | 4883 f800 
+
+  0x0000021e802a9c90: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9c90: 7516 48ba | 5002 d8f1 | 1e02 0000 | 808a 8101 | 0000 01e9 | ee00 0000 
+
+  0x0000021e802a9ca8: ;   {metadata('java/util/Map')}
+  0x0000021e802a9ca8: 48bf d038 | 01ae 1e02 | 0000 8b50 | 0849 ba00 | 0000 ae1e | 0200 0049 | 03d2 483b | 7a20 0f84 
+  0x0000021e802a9cc8: 1b00 0000 | 483b d70f | 8412 0000 
+
+  0x0000021e802a9cd4: ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x0000021e802a9cd4: 0052 57e8 | 2426 2b07 | 5a5a 83fa | 000f 8493 
+
+  0x0000021e802a9ce4: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9ce4: 0000 0048 | ba50 02d8 | f11e 0200 | 008b 7808 | 49ba 0000 | 00ae 1e02 | 0000 4903 | fa48 3bba 
+  0x0000021e802a9d04: 9801 0000 | 750d 4883 | 82a0 0100 | 0001 e97f | 0000 0048 | 3bba a801 | 0000 750d | 4883 82b0 
+  0x0000021e802a9d24: 0100 0001 | e969 0000 | 0048 81ba | 9801 0000 | 0000 0000 | 7517 4889 | ba98 0100 | 0048 c782 
+  0x0000021e802a9d44: a001 0000 | 0100 0000 | e945 0000 | 0048 81ba | a801 0000 | 0000 0000 | 7517 4889 | baa8 0100 
+  0x0000021e802a9d64: 0048 c782 | b001 0000 | 0100 0000 | e921 0000 | 00e9 1c00 
+
+  0x0000021e802a9d78: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9d78: 0000 48ba | 5002 d8f1 | 1e02 0000 | 4883 aa88 | 0100 0001 | e913 0e00 | 00e9 0000 | 0000 488b 
+  0x0000021e802a9d98: f048 83fe 
+
+  0x0000021e802a9d9c: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9d9c: 0049 b850 | 02d8 f11e | 0200 0048 | bac0 0100 | 0000 0000 | 000f 840a | 0000 0048 | bad0 0100 
+  0x0000021e802a9dbc: 0000 0000 | 0049 8b3c | 1048 8d7f | 0149 893c | 100f 8441 | 0d00 0048 | 3b06 4c8b 
+
+  0x0000021e802a9dd8: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9dd8: c648 ba50 | 02d8 f11e | 0200 0045 | 8b40 0849 | ba00 0000 | ae1e 0200 | 004d 03c2 | 4c3b 82f0 
+  0x0000021e802a9df8: 0100 0075 | 0d48 8382 | f801 0000 | 01e9 6600 | 0000 4c3b | 8200 0200 | 0075 0d48 | 8382 0802 
+  0x0000021e802a9e18: 0000 01e9 | 5000 0000 | 4881 baf0 | 0100 0000 | 0000 0075 | 174c 8982 | f001 0000 | 48c7 82f8 
+  0x0000021e802a9e38: 0100 0001 | 0000 00e9 | 2c00 0000 | 4881 ba00 | 0200 0000 | 0000 0075 | 174c 8982 | 0002 0000 
+  0x0000021e802a9e58: 48c7 8208 | 0200 0001 | 0000 00e9 | 0800 0000 | 4883 82e0 | 0100 0001 | 4c8b 4424 | 7048 8bd6 
+  0x0000021e802a9e78: 4889 b424 | 9800 0000 | 0f1f 4400 | 0048 b8ff | ffff ffff 
+
+  0x0000021e802a9e8c: ;   {virtual_call}
+  0x0000021e802a9e8c: ffff ffe8 
+
+  0x0000021e802a9e90: ; ImmutableOopMap {[112]=Oop [136]=Oop [144]=Oop [128]=Oop [120]=Oop [152]=Oop }
+                      ;*invokeinterface remove {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@34 (line 2329)
+  0x0000021e802a9e90: ec81 1f07 | 4883 f800 
+
+  0x0000021e802a9e98: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9e98: 7516 48bf | 5002 d8f1 | 1e02 0000 | 808f 1102 | 0000 01e9 | d200 0000 
+
+  0x0000021e802a9eb0: ;   {metadata('com/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord')}
+  0x0000021e802a9eb0: 48be 301e | 67af 1e02 | 0000 8b50 | 0849 ba00 | 0000 ae1e | 0200 0049 | 03d2 483b | f20f 8593 
+  0x0000021e802a9ed0: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9ed0: 0000 0048 | bf50 02d8 | f11e 0200 | 008b 7008 | 49ba 0000 | 00ae 1e02 | 0000 4903 | f248 3bb7 
+  0x0000021e802a9ef0: 2802 0000 | 750d 4883 | 8730 0200 | 0001 e97f | 0000 0048 | 3bb7 3802 | 0000 750d | 4883 8740 
+  0x0000021e802a9f10: 0200 0001 | e969 0000 | 0048 81bf | 2802 0000 | 0000 0000 | 7517 4889 | b728 0200 | 0048 c787 
+  0x0000021e802a9f30: 3002 0000 | 0100 0000 | e945 0000 | 0048 81bf | 3802 0000 | 0000 0000 | 7517 4889 | b738 0200 
+  0x0000021e802a9f50: 0048 c787 | 4002 0000 | 0100 0000 | e921 0000 | 00e9 1c00 
+
+  0x0000021e802a9f64: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9f64: 0000 48bf | 5002 d8f1 | 1e02 0000 | 4883 af18 | 0200 0001 | e935 0c00 | 00e9 0000 | 0000 488b 
+  0x0000021e802a9f84: f048 83fe 
+
+  0x0000021e802a9f88: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9f88: 0048 ba50 | 02d8 f11e | 0200 0048 | bf50 0200 | 0000 0000 | 000f 840a | 0000 0048 | bf60 0200 
+  0x0000021e802a9fa8: 0000 0000 | 0048 8b04 | 3a48 8d40 | 0148 8904 | 3a0f 8455 | 0b00 00e9 | 700b 0000 | 4c89 4c24 
+  0x0000021e802a9fc8: 704c 8984 | 2480 0000 | 008b 7254 | 48c1 e603 | 4883 fe00 
+
+  0x0000021e802a9fdc: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802a9fdc: 48bf 5002 | d8f1 1e02 | 0000 48b8 | 7002 0000 | 0000 0000 | 0f85 0a00 | 0000 48b8 | 8002 0000 
+  0x0000021e802a9ffc: 0000 0000 | 488b 0c07 | 488d 4901 | 4889 0c07 | 0f85 5003 | 0000 488b 
+
+  0x0000021e802aa014: ;   {metadata('java/util/HashMap')}
+  0x0000021e802aa014: da48 baa0 | 440b ae1e | 0200 0049 | 8b87 0801 | 0000 488d | 7830 493b | bf18 0100 | 000f 8784 
+  0x0000021e802aa034: 0b00 0049 | 89bf 0801 | 0000 48c7 | 0001 0000 | 0048 8bca | 49ba 0000 | 00ae 1e02 | 0000 492b 
+  0x0000021e802aa054: ca89 4808 | 4833 c989 | 480c 4833 | c948 8948 | 1048 8948 | 1848 8948 | 2048 8948 | 284c 8bd8 
+  0x0000021e802aa074: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa074: 498b d348 | be50 02d8 | f11e 0200 | 0048 8386 | 9002 0000 
+
+  0x0000021e802aa088: ;   {metadata(method data for {method} {0x0000021eae3a28c0} '<init>' '()V' in 'java/util/HashMap')}
+  0x0000021e802aa088: 0148 bab0 | ae03 ef1e | 0200 008b | b2cc 0000 | 0083 c602 | 89b2 cc00 | 0000 81e6 | feff 1f00 
+  0x0000021e802aa0a8: 83fe 000f | 8417 0b00 | 0049 8bd3 
+
+  0x0000021e802aa0b4: ;   {metadata(method data for {method} {0x0000021eae3a28c0} '<init>' '()V' in 'java/util/HashMap')}
+  0x0000021e802aa0b4: 48be b0ae | 03ef 1e02 | 0000 4883 | 8610 0100 
+
+  0x0000021e802aa0c4: ;   {metadata(method data for {method} {0x0000021eae3cfca0} '<init>' '()V' in 'java/util/AbstractMap')}
+  0x0000021e802aa0c4: 0001 48ba | 00b0 03ef | 1e02 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x0000021e802aa0e4: 0083 fe00 | 0f84 fb0a | 0000 498b 
+
+  0x0000021e802aa0f0: ;   {metadata(method data for {method} {0x0000021eae3cfca0} '<init>' '()V' in 'java/util/AbstractMap')}
+  0x0000021e802aa0f0: d348 be00 | b003 ef1e | 0200 0048 | 8386 1001 
+
+  0x0000021e802aa100: ;   {metadata(method data for {method} {0x0000021eae440c18} '<init>' '()V' in 'java/lang/Object')}
+  0x0000021e802aa100: 0000 0148 | ba80 7700 | ef1e 0200 | 008b b2cc | 0000 0083 | c602 89b2 | cc00 0000 | 81e6 feff 
+  0x0000021e802aa120: 1f00 83fe | 000f 84df | 0a00 0041 | c743 2000 | 0040 3f41 | 0fbe 5738 | 83fa 000f | 85ea 0a00 
+  0x0000021e802aa140: 004d 8bd3 | 49c1 ea03 | 4489 5354 | 488b d349 | 33d3 48c1 | ea17 4883 | fa00 0f85 | ea0a 0000 
+  0x0000021e802aa160: ;   {metadata('java/util/HashMap')}
+  0x0000021e802aa160: 48ba a044 | 0bae 1e02 | 0000 498b | 8708 0100 | 0048 8d78 | 3049 3bbf | 1801 0000 | 0f87 e00a 
+  0x0000021e802aa180: 0000 4989 | bf08 0100 | 0048 c700 | 0100 0000 | 488b ca49 | ba00 0000 | ae1e 0200 | 0049 2bca 
+  0x0000021e802aa1a0: 8948 0848 | 33c9 8948 | 0c48 33c9 | 4889 4810 | 4889 4818 | 4889 4820 | 4889 4828 
+
+  0x0000021e802aa1bc: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa1bc: 4c8b c049 | b950 02d8 | f11e 0200 | 0049 8381 | a002 0000 
+
+  0x0000021e802aa1d0: ;   {metadata(method data for {method} {0x0000021eae3a28c0} '<init>' '()V' in 'java/util/HashMap')}
+  0x0000021e802aa1d0: 0149 b8b0 | ae03 ef1e | 0200 0045 | 8b88 cc00 | 0000 4183 | c102 4589 | 88cc 0000 | 0041 81e1 
+  0x0000021e802aa1f0: feff 1f00 | 4183 f900 | 0f84 710a | 0000 4c8b 
+
+  0x0000021e802aa200: ;   {metadata(method data for {method} {0x0000021eae3a28c0} '<init>' '()V' in 'java/util/HashMap')}
+  0x0000021e802aa200: c049 b9b0 | ae03 ef1e | 0200 0049 | 8381 1001 
+
+  0x0000021e802aa210: ;   {metadata(method data for {method} {0x0000021eae3cfca0} '<init>' '()V' in 'java/util/AbstractMap')}
+  0x0000021e802aa210: 0000 0149 | b800 b003 | ef1e 0200 | 0045 8b88 | cc00 0000 | 4183 c102 | 4589 88cc | 0000 0041 
+  0x0000021e802aa230: 81e1 feff | 1f00 4183 | f900 0f84 | 500a 0000 
+
+  0x0000021e802aa240: ;   {metadata(method data for {method} {0x0000021eae3cfca0} '<init>' '()V' in 'java/util/AbstractMap')}
+  0x0000021e802aa240: 4c8b c049 | b900 b003 | ef1e 0200 | 0049 8381 | 1001 0000 
+
+  0x0000021e802aa254: ;   {metadata(method data for {method} {0x0000021eae440c18} '<init>' '()V' in 'java/lang/Object')}
+  0x0000021e802aa254: 0149 b880 | 7700 ef1e | 0200 0045 | 8b88 cc00 | 0000 4183 | c102 4589 | 88cc 0000 | 0041 81e1 
+  0x0000021e802aa274: feff 1f00 | 4183 f900 | 0f84 2f0a | 0000 c740 | 2000 0040 | 3f4d 8bc3 
+
+  0x0000021e802aa28c: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa28c: 49b9 5002 | d8f1 1e02 | 0000 458b | 4008 49ba | 0000 00ae | 1e02 0000 | 4d03 c24d | 3b81 c002 
+  0x0000021e802aa2ac: 0000 750d | 4983 81c8 | 0200 0001 | e966 0000 | 004d 3b81 | d002 0000 | 750d 4983 | 81d8 0200 
+  0x0000021e802aa2cc: 0001 e950 | 0000 0049 | 81b9 c002 | 0000 0000 | 0000 7517 | 4d89 81c0 | 0200 0049 | c781 c802 
+  0x0000021e802aa2ec: 0000 0100 | 0000 e92c | 0000 0049 | 81b9 d002 | 0000 0000 | 0000 7517 | 4d89 81d0 | 0200 0049 
+  0x0000021e802aa30c: c781 d802 | 0000 0100 | 0000 e908 | 0000 0049 | 8381 b002 | 0000 014c | 8b84 2480 | 0000 004c 
+  0x0000021e802aa32c: 8bc8 498b | d348 8984 | 24a0 0000 | 0066 0f1f 
+
+  0x0000021e802aa33c: ;   {optimized virtual_call}
+  0x0000021e802aa33c: 4400 00e8 
+
+  0x0000021e802aa340: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop [160]=Oop [120]=Oop }
+                      ;*invokeinterface put {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@91 (line 2341)
+  0x0000021e802aa340: bc77 1f07 
+
+  0x0000021e802aa344: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa344: 49b8 5002 | d8f1 1e02 | 0000 41ff | 80e8 0200 | 0048 8b84 | 24a0 0000 | 00e9 0204 | 0000 483b 
+  0x0000021e802aa364: 064c 8bc6 
+
+  0x0000021e802aa368: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa368: 48ba 5002 | d8f1 1e02 | 0000 458b | 4008 49ba | 0000 00ae | 1e02 0000 | 4d03 c24c | 3b82 1003 
+  0x0000021e802aa388: 0000 750d | 4883 8218 | 0300 0001 | e966 0000 | 004c 3b82 | 2003 0000 | 750d 4883 | 8228 0300 
+  0x0000021e802aa3a8: 0001 e950 | 0000 0048 | 81ba 1003 | 0000 0000 | 0000 7517 | 4c89 8210 | 0300 0048 | c782 1803 
+  0x0000021e802aa3c8: 0000 0100 | 0000 e92c | 0000 0048 | 81ba 2003 | 0000 0000 | 0000 7517 | 4c89 8220 | 0300 0048 
+  0x0000021e802aa3e8: c782 2803 | 0000 0100 | 0000 e908 | 0000 0048 | 8382 0003 | 0000 014c | 8b84 2480 | 0000 0048 
+  0x0000021e802aa408: 8bd6 6666 | 9048 b8a0 | 440b ae1e 
+
+  0x0000021e802aa414: ;   {virtual_call}
+  0x0000021e802aa414: 0200 00e8 
+
+  0x0000021e802aa418: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop [120]=Oop }
+                      ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@105 (line 2343)
+  0x0000021e802aa418: 243d b007 | 4883 f800 
+
+  0x0000021e802aa420: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa420: 7516 48be | 5002 d8f1 | 1e02 0000 | 808e 3103 | 0000 01e9 | ee00 0000 
+
+  0x0000021e802aa438: ;   {metadata('java/util/Map')}
+  0x0000021e802aa438: 48bf d038 | 01ae 1e02 | 0000 8b70 | 0849 ba00 | 0000 ae1e | 0200 0049 | 03f2 483b | 7e20 0f84 
+  0x0000021e802aa458: 1b00 0000 | 483b f70f | 8412 0000 
+
+  0x0000021e802aa464: ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x0000021e802aa464: 0056 57e8 | 941e 2b07 | 5e5e 83fe | 000f 8493 
+
+  0x0000021e802aa474: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa474: 0000 0048 | be50 02d8 | f11e 0200 | 008b 7808 | 49ba 0000 | 00ae 1e02 | 0000 4903 | fa48 3bbe 
+  0x0000021e802aa494: 4803 0000 | 750d 4883 | 8650 0300 | 0001 e97f | 0000 0048 | 3bbe 5803 | 0000 750d | 4883 8660 
+  0x0000021e802aa4b4: 0300 0001 | e969 0000 | 0048 81be | 4803 0000 | 0000 0000 | 7517 4889 | be48 0300 | 0048 c786 
+  0x0000021e802aa4d4: 5003 0000 | 0100 0000 | e945 0000 | 0048 81be | 5803 0000 | 0000 0000 | 7517 4889 | be58 0300 
+  0x0000021e802aa4f4: 0048 c786 | 6003 0000 | 0100 0000 | e921 0000 | 00e9 1c00 
+
+  0x0000021e802aa508: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa508: 0000 48be | 5002 d8f1 | 1e02 0000 | 4883 ae38 | 0300 0001 | e9b6 0700 | 00e9 0000 | 0000 4c8b 
+  0x0000021e802aa528: c049 83f8 
+
+  0x0000021e802aa52c: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa52c: 0048 ba50 | 02d8 f11e | 0200 0048 | be80 0300 | 0000 0000 | 000f 840a | 0000 0048 | be70 0300 
+  0x0000021e802aa54c: 0000 0000 | 0048 8b3c | 3248 8d7f | 0148 893c | 320f 8408 | 0000 0049 | 8bc0 e9f9 | 0100 0048 
+  0x0000021e802aa56c: 8b54 2478 
+
+  0x0000021e802aa570: ;   {metadata('java/util/HashMap')}
+  0x0000021e802aa570: 488b da48 | baa0 440b | ae1e 0200 | 0049 8b87 | 0801 0000 | 488d 7830 | 493b bf18 | 0100 000f 
+  0x0000021e802aa590: 874b 0700 | 0049 89bf | 0801 0000 | 48c7 0001 | 0000 0048 | 8bca 49ba | 0000 00ae | 1e02 0000 
+  0x0000021e802aa5b0: 492b ca89 | 4808 4833 | c989 480c | 4833 c948 | 8948 1048 | 8948 1848 | 8948 2048 | 8948 284c 
+  0x0000021e802aa5d0: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa5d0: 8bc8 48ba | 5002 d8f1 | 1e02 0000 | 4883 8290 | 0300 0001 
+
+  0x0000021e802aa5e4: ;   {metadata(method data for {method} {0x0000021eae3a28c0} '<init>' '()V' in 'java/util/HashMap')}
+  0x0000021e802aa5e4: 49b9 b0ae | 03ef 1e02 | 0000 418b | 91cc 0000 | 0083 c202 | 4189 91cc | 0000 0081 | e2fe ff1f 
+  0x0000021e802aa604: 0083 fa00 | 0f84 df06 | 0000 4c8b 
+
+  0x0000021e802aa610: ;   {metadata(method data for {method} {0x0000021eae3a28c0} '<init>' '()V' in 'java/util/HashMap')}
+  0x0000021e802aa610: c848 bab0 | ae03 ef1e | 0200 0048 | 8382 1001 
+
+  0x0000021e802aa620: ;   {metadata(method data for {method} {0x0000021eae3cfca0} '<init>' '()V' in 'java/util/AbstractMap')}
+  0x0000021e802aa620: 0000 0149 | b900 b003 | ef1e 0200 | 0041 8b91 | cc00 0000 | 83c2 0241 | 8991 cc00 | 0000 81e2 
+  0x0000021e802aa640: feff 1f00 | 83fa 000f | 84c1 0600 | 004c 8bc8 
+
+  0x0000021e802aa650: ;   {metadata(method data for {method} {0x0000021eae3cfca0} '<init>' '()V' in 'java/util/AbstractMap')}
+  0x0000021e802aa650: 48ba 00b0 | 03ef 1e02 | 0000 4883 | 8210 0100 
+
+  0x0000021e802aa660: ;   {metadata(method data for {method} {0x0000021eae440c18} '<init>' '()V' in 'java/lang/Object')}
+  0x0000021e802aa660: 0001 49b9 | 8077 00ef | 1e02 0000 | 418b 91cc | 0000 0083 | c202 4189 | 91cc 0000 | 0081 e2fe 
+  0x0000021e802aa680: ff1f 0083 | fa00 0f84 | a306 0000 | c740 2000 | 0040 3f8b | 5354 48c1 | e203 483b | 024c 8bc2 
+  0x0000021e802aa6a0: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa6a0: 49b9 5002 | d8f1 1e02 | 0000 458b | 4008 49ba | 0000 00ae | 1e02 0000 | 4d03 c24d | 3b81 b003 
+  0x0000021e802aa6c0: 0000 750d | 4983 81b8 | 0300 0001 | e966 0000 | 004d 3b81 | c003 0000 | 750d 4983 | 81c8 0300 
+  0x0000021e802aa6e0: 0001 e950 | 0000 0049 | 81b9 b003 | 0000 0000 | 0000 7517 | 4d89 81b0 | 0300 0049 | c781 b803 
+  0x0000021e802aa700: 0000 0100 | 0000 e92c | 0000 0049 | 81b9 c003 | 0000 0000 | 0000 7517 | 4d89 81c0 | 0300 0049 
+  0x0000021e802aa720: c781 c803 | 0000 0100 | 0000 e908 | 0000 0049 | 8381 a003 | 0000 014c | 8b84 2480 | 0000 004c 
+  0x0000021e802aa740: 8bc8 4889 | 8424 a800 | 0000 6666 | 9048 b8a0 | 440b ae1e 
+
+  0x0000021e802aa754: ;   {virtual_call}
+  0x0000021e802aa754: 0200 00e8 
+
+  0x0000021e802aa758: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop [120]=Oop [168]=Oop }
+                      ;*invokeinterface put {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@136 (line 2346)
+  0x0000021e802aa758: c446 a807 | 488b 8424 | a800 0000 | 488b b424 | 9000 0000 | 488b bc24 | 8800 0000 | 488b 5424 
+  0x0000021e802aa778: 7848 8bda 
+
+  0x0000021e802aa77c: ;   {metadata('com/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord')}
+  0x0000021e802aa77c: 48ba 301e | 67af 1e02 | 0000 4c8b | f04c 8bee | 4c8b df49 | 8b87 0801 | 0000 488d | 7818 493b 
+  0x0000021e802aa79c: bf18 0100 | 000f 87ae | 0500 0049 | 89bf 0801 | 0000 48c7 | 0001 0000 | 0048 8bca | 49ba 0000 
+  0x0000021e802aa7bc: 00ae 1e02 | 0000 492b | ca89 4808 | 4833 c989 | 480c 4833 | c948 8948 | 104c 8bc0 
+
+  0x0000021e802aa7d8: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa7d8: 49b9 5002 | d8f1 1e02 | 0000 4983 | 81d8 0300 
+
+  0x0000021e802aa7e8: ;   {metadata(method data for {method} {0x0000021ef1d78560} '<init>' '(Lcom/sun/org/apache/xerces/internal/dom/ParentNode;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)V' in 'com/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord')}
+  0x0000021e802aa7e8: 0001 49b8 | 3007 d8f1 | 1e02 0000 | 458b 88cc | 0080 0041 | 83c1 0245 | 8988 cc00 | 0000 4181 
+  0x0000021e802aa808: e1fe ff1f | 0041 83f9 | 000f 844b | 0500 0045 | 0fbe 4738 | 4183 f800 | 0f85 5d05 | 0000 4c8b 
+  0x0000021e802aa828: d349 c1ea | 0344 8950 | 144c 8bc0 | 4c33 c349 | c1e8 1749 | 83f8 000f | 855e 0500 | 004c 8bc0 
+  0x0000021e802aa848: ;   {metadata(method data for {method} {0x0000021ef1d78560} '<init>' '(Lcom/sun/org/apache/xerces/internal/dom/ParentNode;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)V' in 'com/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord')}
+  0x0000021e802aa848: 49b9 3007 | d8f1 1e02 | 0000 4983 | 8110 0100 
+
+  0x0000021e802aa858: ;   {metadata(method data for {method} {0x0000021eae440c18} '<init>' '()V' in 'java/lang/Object')}
+  0x0000021e802aa858: 0001 49b8 | 8077 00ef | 1e02 0000 | 458b 88cc | 0000 0041 | 83c1 0245 | 8988 cc00 | 0000 4181 
+  0x0000021e802aa878: e1fe ff1f | 0041 83f9 | 000f 8434 | 0500 0045 | 0fbe 4738 | 4183 f800 | 0f85 4605 | 0000 4d8b 
+  0x0000021e802aa898: d349 c1ea | 0344 8950 | 0c4c 8bc0 | 4d33 c349 | c1e8 1749 | 83f8 000f | 8547 0500 | 0045 0fbe 
+  0x0000021e802aa8b8: 4738 4183 | f800 0f85 | 5005 0000 | 4d8b d549 | c1ea 0344 | 8950 104c | 8bc0 4d33 | c549 c1e8 
+  0x0000021e802aa8d8: 1749 83f8 | 000f 8551 | 0500 0049 | 3b06 4d8b 
+
+  0x0000021e802aa8e8: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa8e8: c649 b950 | 02d8 f11e | 0200 0045 | 8b40 0849 | ba00 0000 | ae1e 0200 | 004d 03c2 | 4d3b 81f8 
+  0x0000021e802aa908: 0300 0075 | 0d49 8381 | 0004 0000 | 01e9 6600 | 0000 4d3b | 8108 0400 | 0075 0d49 | 8381 1004 
+  0x0000021e802aa928: 0000 01e9 | 5000 0000 | 4981 b9f8 | 0300 0000 | 0000 0075 | 174d 8981 | f803 0000 | 49c7 8100 
+  0x0000021e802aa948: 0400 0001 | 0000 00e9 | 2c00 0000 | 4981 b908 | 0400 0000 | 0000 0075 | 174d 8981 | 0804 0000 
+  0x0000021e802aa968: 49c7 8110 | 0400 0001 | 0000 00e9 | 0800 0000 | 4983 81e8 | 0300 0001 | 4c8b 4424 | 704c 8bc8 
+  0x0000021e802aa988: 498b d64c | 89b4 24b0 | 0000 0066 | 9048 b8ff | ffff ffff 
+
+  0x0000021e802aa99c: ;   {virtual_call}
+  0x0000021e802aa99c: ffff ffe8 
+
+  0x0000021e802aa9a0: ; ImmutableOopMap {[128]=Oop [112]=Oop [176]=Oop [120]=Oop [136]=Oop [144]=Oop }
+                      ;*invokeinterface put {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@156 (line 2349)
+  0x0000021e802aa9a0: dc76 1f07 | 4883 f800 
+
+  0x0000021e802aa9a8: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa9a8: 7516 48bf | 5002 d8f1 | 1e02 0000 | 808f 1904 | 0000 01e9 | d200 0000 
+
+  0x0000021e802aa9c0: ;   {metadata('com/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord')}
+  0x0000021e802aa9c0: 48bb 301e | 67af 1e02 | 0000 8b70 | 0849 ba00 | 0000 ae1e | 0200 0049 | 03f2 483b | de0f 8593 
+  0x0000021e802aa9e0: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aa9e0: 0000 0048 | bf50 02d8 | f11e 0200 | 008b 5808 | 49ba 0000 | 00ae 1e02 | 0000 4903 | da48 3b9f 
+  0x0000021e802aaa00: 3004 0000 | 750d 4883 | 8738 0400 | 0001 e97f | 0000 0048 | 3b9f 4004 | 0000 750d | 4883 8748 
+  0x0000021e802aaa20: 0400 0001 | e969 0000 | 0048 81bf | 3004 0000 | 0000 0000 | 7517 4889 | 9f30 0400 | 0048 c787 
+  0x0000021e802aaa40: 3804 0000 | 0100 0000 | e945 0000 | 0048 81bf | 4004 0000 | 0000 0000 | 7517 4889 | 9f40 0400 
+  0x0000021e802aaa60: 0048 c787 | 4804 0000 | 0100 0000 | e921 0000 | 00e9 1c00 
+
+  0x0000021e802aaa74: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aaa74: 0000 48bf | 5002 d8f1 | 1e02 0000 | 4883 af20 | 0400 0001 | e9c4 0300 | 00e9 0000 | 0000 4883 
+  0x0000021e802aaa94: ;   {metadata(method data for {method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aaa94: f800 48be | 5002 d8f1 | 1e02 0000 | 48bf 5804 | 0000 0000 | 0000 0f84 | 0a00 0000 | 48bf 6804 
+  0x0000021e802aaab4: 0000 0000 | 0000 488b | 1c3e 488d | 5b01 4889 | 1c3e 0f84 | 2800 0000 | 488b b424 | b000 0000 
+  0x0000021e802aaad4: ; implicit exception: dispatches to 0x0000021e802aae5a
+  0x0000021e802aaad4: 8b78 0c48 | c1e7 0348 | 8bc7 4881 | c4c0 0000 
+
+  0x0000021e802aaae4: ;   {poll_return}
+  0x0000021e802aaae4: 005d 493b | a750 0300 | 000f 876c | 0300 00c3 
+
+  0x0000021e802aaaf4: ;   {oop(NULL)}
+  0x0000021e802aaaf4: 48b8 0000 | 0000 0000 | 0000 4881 | c4c0 0000 
+
+  0x0000021e802aab04: ;   {poll_return}
+  0x0000021e802aab04: 005d 493b | a750 0300 | 000f 8762 | 0300 00c3 
+
+  0x0000021e802aab14: ;   {oop(NULL)}
+  0x0000021e802aab14: 48b8 0000 | 0000 0000 | 0000 4881 | c4c0 0000 
+
+  0x0000021e802aab24: ;   {poll_return}
+  0x0000021e802aab24: 005d 493b | a750 0300 | 000f 8758 | 0300 00c3 | 488b 9c24 | 9800 0000 | 488b 8424 | 9000 0000 
+  0x0000021e802aab44: 488b bc24 | 8800 0000 | 4c8b 4c24 | 704c 8b84 | 2480 0000 | 0048 8b54 | 2478 8b4e | 0c48 c1e1 
+  0x0000021e802aab64: 0348 8bc1 | 4881 c4c0 | 0000 005d 
+
+  0x0000021e802aab70: ;   {poll_return}
+  0x0000021e802aab70: 493b a750 | 0300 000f | 8729 0300 
+
+  0x0000021e802aab7c: ;   {metadata({method} {0x0000021ef07ea1e8} 'setUserData' '(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;' in 'com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl')}
+  0x0000021e802aab7c: 00c3 49ba | e0a1 7ef0 | 1e02 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x0000021e802aab94: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000021e802aab94: ffe8 e653 
+
+  0x0000021e802aab98: ; ImmutableOopMap {rdx=Oop [120]=Oop r8=Oop r9=Oop rdi=Oop [136]=Oop rsi=Oop [144]=Oop }
+                      ;*synchronization entry
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@-1 (line 2325)
+  0x0000021e802aab98: 2b07 e9ad 
+
+  0x0000021e802aab9c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000021e802aab9c: efff ffe8 
+
+  0x0000021e802aaba0: ; ImmutableOopMap {[120]=Oop [136]=Oop [112]=Oop [144]=Oop rbx=Oop r8=Oop }
+                      ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@16 (line 2327)
+  0x0000021e802aaba0: 7ce5 2a07 | 4889 0424 
+
+  0x0000021e802aaba8: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x0000021e802aaba8: e873 112b 
+
+  0x0000021e802aabac: ; ImmutableOopMap {[120]=Oop [128]=Oop [144]=Oop [136]=Oop [112]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@21 (line 2327)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000021e802aabac: 07e8 6ee5 
+
+  0x0000021e802aabb0: ; ImmutableOopMap {rsi=Oop [112]=Oop [136]=Oop [144]=Oop [128]=Oop [120]=Oop }
+                      ;*invokeinterface remove {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@34 (line 2329)
+  0x0000021e802aabb0: 2a07 4889 
+
+  0x0000021e802aabb4: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x0000021e802aabb4: 0424 e865 
+
+  0x0000021e802aabb8: ; ImmutableOopMap {[112]=Oop [136]=Oop [144]=Oop [128]=Oop [120]=Oop [152]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@39 (line 2329)
+  0x0000021e802aabb8: 112b 0748 
+
+  0x0000021e802aabbc: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x0000021e802aabbc: 8bd2 e83d 
+
+  0x0000021e802aabc0: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop rbx=Oop [120]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@65 (line 2339)
+  0x0000021e802aabc0: f02a 07e9 | a9f4 ffff 
+
+  0x0000021e802aabc8: ;   {metadata({method} {0x0000021eae3a28c0} '<init>' '()V' in 'java/util/HashMap')}
+  0x0000021e802aabc8: 49ba b828 | 3aae 1e02 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x0000021e802aabdc: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000021e802aabdc: ffff ffe8 
+
+  0x0000021e802aabe0: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop rbx=Oop [120]=Oop r11=Oop }
+                      ;*synchronization entry
+                      ; - java.util.HashMap::<init>@-1 (line 469)
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@69 (line 2339)
+  0x0000021e802aabe0: 9c53 2b07 | e9c8 f4ff 
+
+  0x0000021e802aabe8: ;   {metadata({method} {0x0000021eae3cfca0} '<init>' '()V' in 'java/util/AbstractMap')}
+  0x0000021e802aabe8: ff49 ba98 | fc3c ae1e | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x0000021e802aac00: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000021e802aac00: e87b 532b 
+
+  0x0000021e802aac04: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop rbx=Oop [120]=Oop r11=Oop }
+                      ;*synchronization entry
+                      ; - java.util.AbstractMap::<init>@-1 (line 73)
+                      ; - java.util.HashMap::<init>@1 (line 469)
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@69 (line 2339)
+  0x0000021e802aac04: 07e9 e4f4 
+
+  0x0000021e802aac08: ;   {metadata({method} {0x0000021eae440c18} '<init>' '()V' in 'java/lang/Object')}
+  0x0000021e802aac08: ffff 49ba | 100c 44ae | 1e02 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x0000021e802aac20: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000021e802aac20: ffe8 5a53 
+
+  0x0000021e802aac24: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop rbx=Oop [120]=Oop r11=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Object::<init>@-1 (line 44)
+                      ; - java.util.AbstractMap::<init>@1 (line 73)
+                      ; - java.util.HashMap::<init>@1 (line 469)
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@69 (line 2339)
+  0x0000021e802aac24: 2b07 e900 | f5ff ff8b | 5354 48c1 | e203 4883 | fa00 0f84 | 05f5 ffff | 4889 1424 
+
+  0x0000021e802aac40: ;   {runtime_call g1_pre_barrier_slow}
+  0x0000021e802aac40: e83b 5a2b | 07e9 f7f4 | ffff 4983 | fb00 0f84 | 0cf5 ffff | 4889 1c24 
+
+  0x0000021e802aac58: ;   {runtime_call g1_post_barrier_slow}
+  0x0000021e802aac58: e823 5e2b | 07e9 fef4 | ffff 488b 
+
+  0x0000021e802aac64: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x0000021e802aac64: d2e8 96ef 
+
+  0x0000021e802aac68: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop rbx=Oop [120]=Oop r11=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@75 (line 2340)
+  0x0000021e802aac68: 2a07 e94d 
+
+  0x0000021e802aac6c: ;   {metadata({method} {0x0000021eae3a28c0} '<init>' '()V' in 'java/util/HashMap')}
+  0x0000021e802aac6c: f5ff ff49 | bab8 283a | ae1e 0200 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x0000021e802aac84: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000021e802aac84: ffff e8f5 
+
+  0x0000021e802aac88: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop rbx=Oop [120]=Oop r11=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.util.HashMap::<init>@-1 (line 469)
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@79 (line 2340)
+  0x0000021e802aac88: 522b 07e9 | 6ef5 ffff 
+
+  0x0000021e802aac90: ;   {metadata({method} {0x0000021eae3cfca0} '<init>' '()V' in 'java/util/AbstractMap')}
+  0x0000021e802aac90: 49ba 98fc | 3cae 1e02 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x0000021e802aaca4: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000021e802aaca4: ffff ffe8 
+
+  0x0000021e802aaca8: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop rbx=Oop [120]=Oop r11=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.util.AbstractMap::<init>@-1 (line 73)
+                      ; - java.util.HashMap::<init>@1 (line 469)
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@79 (line 2340)
+  0x0000021e802aaca8: d452 2b07 | e98f f5ff 
+
+  0x0000021e802aacb0: ;   {metadata({method} {0x0000021eae440c18} '<init>' '()V' in 'java/lang/Object')}
+  0x0000021e802aacb0: ff49 ba10 | 0c44 ae1e | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x0000021e802aacc8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000021e802aacc8: e8b3 522b 
+
+  0x0000021e802aaccc: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop rbx=Oop [120]=Oop r11=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Object::<init>@-1 (line 44)
+                      ; - java.util.AbstractMap::<init>@1 (line 73)
+                      ; - java.util.HashMap::<init>@1 (line 469)
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@79 (line 2340)
+  0x0000021e802aaccc: 07e9 b0f5 
+
+  0x0000021e802aacd0: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000021e802aacd0: ffff e849 
+
+  0x0000021e802aacd4: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop [120]=Oop rsi=Oop }
+                      ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@105 (line 2343)
+  0x0000021e802aacd4: e42a 0748 
+
+  0x0000021e802aacd8: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x0000021e802aacd8: 8904 24e8 
+
+  0x0000021e802aacdc: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop [120]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@110 (line 2343)
+  0x0000021e802aacdc: 4010 2b07 
+
+  0x0000021e802aace0: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x0000021e802aace0: 488b d2e8 
+
+  0x0000021e802aace4: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop r8=Oop rbx=Oop [120]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@120 (line 2345)
+  0x0000021e802aace4: 18ef 2a07 | e9e2 f8ff 
+
+  0x0000021e802aacec: ;   {metadata({method} {0x0000021eae3a28c0} '<init>' '()V' in 'java/util/HashMap')}
+  0x0000021e802aacec: ff49 bab8 | 283a ae1e | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x0000021e802aad04: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000021e802aad04: e877 522b 
+
+  0x0000021e802aad08: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop r8=Oop rbx=Oop [120]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.util.HashMap::<init>@-1 (line 469)
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@124 (line 2345)
+  0x0000021e802aad08: 07e9 00f9 
+
+  0x0000021e802aad0c: ;   {metadata({method} {0x0000021eae3cfca0} '<init>' '()V' in 'java/util/AbstractMap')}
+  0x0000021e802aad0c: ffff 49ba | 98fc 3cae | 1e02 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x0000021e802aad24: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000021e802aad24: ffe8 5652 
+
+  0x0000021e802aad28: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop r8=Oop rbx=Oop [120]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.util.AbstractMap::<init>@-1 (line 73)
+                      ; - java.util.HashMap::<init>@1 (line 469)
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@124 (line 2345)
+  0x0000021e802aad28: 2b07 e91e 
+
+  0x0000021e802aad2c: ;   {metadata({method} {0x0000021eae440c18} '<init>' '()V' in 'java/lang/Object')}
+  0x0000021e802aad2c: f9ff ff49 | ba10 0c44 | ae1e 0200 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x0000021e802aad44: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000021e802aad44: ffff e835 
+
+  0x0000021e802aad48: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop r8=Oop rbx=Oop [120]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Object::<init>@-1 (line 44)
+                      ; - java.util.AbstractMap::<init>@1 (line 73)
+                      ; - java.util.HashMap::<init>@1 (line 469)
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@124 (line 2345)
+  0x0000021e802aad48: 522b 07e9 | 3cf9 ffff 
+
+  0x0000021e802aad50: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000021e802aad50: e8cb e32a 
+
+  0x0000021e802aad54: ; ImmutableOopMap {[128]=Oop [144]=Oop [136]=Oop [112]=Oop rbx=Oop [120]=Oop rax=Oop rdx=Oop }
+                      ;*invokeinterface put {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@136 (line 2346)
+  0x0000021e802aad54: 0748 8bd2 
+
+  0x0000021e802aad58: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x0000021e802aad58: e8a3 ee2a 
+
+  0x0000021e802aad5c: ; ImmutableOopMap {[128]=Oop [112]=Oop rbx=Oop [120]=Oop r14=Oop r11=Oop [136]=Oop r13=Oop [144]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@145 (line 2349)
+  0x0000021e802aad5c: 07e9 73fa 
+
+  0x0000021e802aad60: ;   {metadata({method} {0x0000021ef1d78560} '<init>' '(Lcom/sun/org/apache/xerces/internal/dom/ParentNode;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)V' in 'com/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord')}
+  0x0000021e802aad60: ffff 49ba | 5885 d7f1 | 1e02 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x0000021e802aad78: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000021e802aad78: ffe8 0252 
+
+  0x0000021e802aad7c: ; ImmutableOopMap {[128]=Oop [112]=Oop rbx=Oop [120]=Oop r14=Oop r11=Oop [136]=Oop r13=Oop [144]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - com.sun.org.apache.xerces.internal.dom.ParentNode$UserDataRecord::<init>@-1 (line 1029)
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@153 (line 2349)
+  0x0000021e802aad7c: 2b07 e994 | faff ff44 | 8b40 1449 | c1e0 0349 | 83f8 000f | 8491 faff | ff4c 8904 
+
+  0x0000021e802aad98: ;   {runtime_call g1_pre_barrier_slow}
+  0x0000021e802aad98: 24e8 e258 | 2b07 e983 | faff ff48 | 83fb 000f | 8498 faff | ff48 8904 
+
+  0x0000021e802aadb0: ;   {runtime_call g1_post_barrier_slow}
+  0x0000021e802aadb0: 24e8 ca5c | 2b07 e98a 
+
+  0x0000021e802aadb8: ;   {metadata({method} {0x0000021eae440c18} '<init>' '()V' in 'java/lang/Object')}
+  0x0000021e802aadb8: faff ff49 | ba10 0c44 | ae1e 0200 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x0000021e802aadd0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x0000021e802aadd0: ffff e8a9 
+
+  0x0000021e802aadd4: ; ImmutableOopMap {[128]=Oop [112]=Oop rbx=Oop [120]=Oop r14=Oop r11=Oop [136]=Oop r13=Oop [144]=Oop rax=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Object::<init>@-1 (line 44)
+                      ; - com.sun.org.apache.xerces.internal.dom.ParentNode$UserDataRecord::<init>@6 (line 1029)
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@153 (line 2349)
+  0x0000021e802aadd4: 512b 07e9 | abfa ffff | 448b 400c | 49c1 e003 | 4983 f800 | 0f84 a8fa | ffff 4c89 
+
+  0x0000021e802aadf0: ;   {runtime_call g1_pre_barrier_slow}
+  0x0000021e802aadf0: 0424 e889 | 582b 07e9 | 9afa ffff | 4983 fb00 | 0f84 affa | ffff 4889 
+
+  0x0000021e802aae08: ;   {runtime_call g1_post_barrier_slow}
+  0x0000021e802aae08: 0424 e871 | 5c2b 07e9 | a1fa ffff | 448b 4010 | 49c1 e003 | 4983 f800 | 0f84 9efa | ffff 4c89 
+  0x0000021e802aae28: ;   {runtime_call g1_pre_barrier_slow}
+  0x0000021e802aae28: 0424 e851 | 582b 07e9 | 90fa ffff | 4983 fd00 | 0f84 a5fa | ffff 4889 
+
+  0x0000021e802aae40: ;   {runtime_call g1_post_barrier_slow}
+  0x0000021e802aae40: 0424 e839 | 5c2b 07e9 | 97fa ffff 
+
+  0x0000021e802aae4c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000021e802aae4c: e8cf e22a 
+
+  0x0000021e802aae50: ; ImmutableOopMap {[128]=Oop [112]=Oop rbx=Oop [120]=Oop r14=Oop r11=Oop [136]=Oop r13=Oop [144]=Oop rax=Oop }
+                      ;*invokeinterface put {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@156 (line 2349)
+  0x0000021e802aae50: 0748 8904 
+
+  0x0000021e802aae54: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x0000021e802aae54: 24e8 c60e 
+
+  0x0000021e802aae58: ; ImmutableOopMap {[128]=Oop [112]=Oop [176]=Oop [120]=Oop [136]=Oop [144]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@161 (line 2349)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000021e802aae58: 2b07 e8c1 
+
+  0x0000021e802aae5c: ; ImmutableOopMap {[128]=Oop [112]=Oop [120]=Oop [136]=Oop [144]=Oop rax=Oop rsi=Oop }
+                      ;*getfield fData {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@173 (line 2351)
+                      ;   {internal_word}
+  0x0000021e802aae5c: e22a 0749 | bae6 aa2a | 801e 0200 | 004d 8997 | 6803 0000 
+
+  0x0000021e802aae70: ;   {runtime_call SafepointBlob}
+  0x0000021e802aae70: e90b e11f 
+
+  0x0000021e802aae74: ;   {internal_word}
+  0x0000021e802aae74: 0749 ba06 | ab2a 801e | 0200 004d | 8997 6803 
+
+  0x0000021e802aae84: ;   {runtime_call SafepointBlob}
+  0x0000021e802aae84: 0000 e9f5 
+
+  0x0000021e802aae88: ;   {internal_word}
+  0x0000021e802aae88: e01f 0749 | ba26 ab2a | 801e 0200 | 004d 8997 | 6803 0000 
+
+  0x0000021e802aae9c: ;   {runtime_call SafepointBlob}
+  0x0000021e802aae9c: e9df e01f 
+
+  0x0000021e802aaea0: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000021e802aaea0: 07e8 7ae2 
+
+  0x0000021e802aaea4: ; ImmutableOopMap {rdx=Oop [120]=Oop rdi=Oop [136]=Oop rax=Oop [144]=Oop rbx=Oop r9=Oop r8=Oop rsi=Oop }
+                      ;*getfield fData {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData@51 (line 2331)
+                      ;   {internal_word}
+  0x0000021e802aaea4: 2a07 49ba | 70ab 2a80 | 1e02 0000 | 4d89 9768 
+
+  0x0000021e802aaeb4: ;   {runtime_call SafepointBlob}
+  0x0000021e802aaeb4: 0300 00e9 | c4e0 1f07 | 9090 498b | 87e0 0300 | 0049 c787 | e003 0000 | 0000 0000 | 49c7 87e8 
+  0x0000021e802aaed4: 0300 0000 | 0000 0048 | 81c4 c000 
+
+  0x0000021e802aaee0: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x0000021e802aaee0: 0000 5de9 | 18fc 2107 | f4f4 f4f4 | f4f4 f4f4 | f4f4 f4f4 | f4f4 f4f4 | f4f4 f4f4 | f4f4 f4f4 
+[Stub Code]
+  0x0000021e802aaf00: ;   {no_reloc}
+  0x0000021e802aaf00: 0f1f 4400 
+
+  0x0000021e802aaf04: ;   {static_stub}
+  0x0000021e802aaf04: 0048 bb00 | 0000 0000 
+
+  0x0000021e802aaf0c: ;   {runtime_call}
+  0x0000021e802aaf0c: 0000 00e9 | fbff ffff 
+
+  0x0000021e802aaf14: ;   {static_stub}
+  0x0000021e802aaf14: 9048 bb00 | 0000 0000 
+
+  0x0000021e802aaf1c: ;   {runtime_call}
+  0x0000021e802aaf1c: 0000 00e9 | fbff ffff 
+
+  0x0000021e802aaf24: ;   {static_stub}
+  0x0000021e802aaf24: 9048 bb00 | 0000 0000 
+
+  0x0000021e802aaf2c: ;   {runtime_call}
+  0x0000021e802aaf2c: 0000 00e9 | fbff ffff 
+
+  0x0000021e802aaf34: ;   {static_stub}
+  0x0000021e802aaf34: 9048 bb00 | 0000 0000 
+
+  0x0000021e802aaf3c: ;   {runtime_call}
+  0x0000021e802aaf3c: 0000 00e9 | fbff ffff 
+
+  0x0000021e802aaf44: ;   {static_stub}
+  0x0000021e802aaf44: 9048 bb00 | 0000 0000 
+
+  0x0000021e802aaf4c: ;   {runtime_call}
+  0x0000021e802aaf4c: 0000 00e9 | fbff ffff 
+
+  0x0000021e802aaf54: ;   {static_stub}
+  0x0000021e802aaf54: 9048 bb00 | 0000 0000 
+
+  0x0000021e802aaf5c: ;   {runtime_call}
+  0x0000021e802aaf5c: 0000 00e9 | fbff ffff 
+[Exception Handler]
+  0x0000021e802aaf64: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x0000021e802aaf64: e897 072b 
+
+  0x0000021e802aaf68: ;   {external_word}
+  0x0000021e802aaf68: 0748 b930 | ca42 67fc | 7f00 0048 
+
+  0x0000021e802aaf74: ;   {runtime_call}
+  0x0000021e802aaf74: 83e4 f049 | ba40 480b | 67fc 7f00 | 0041 ffd2 
+
+  0x0000021e802aaf84: ;   {section_word}
+  0x0000021e802aaf84: f449 ba85 | af2a 801e | 0200 0041 
+
+  0x0000021e802aaf90: ;   {runtime_call DeoptimizationBlob}
+  0x0000021e802aaf90: 52e9 8af4 | 1f07 f4f4 
+[/MachCode]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000021f02f3bdd0, length=39, elements={
+0x0000021ef6f79c50, 0x0000021eff4fe3a0, 0x0000021eff500f70, 0x0000021eff50e800,
+0x0000021ead9b2520, 0x0000021ead9b4ef0, 0x0000021ead9b78c0, 0x0000021ead9baa70,
+0x0000021ead9c4490, 0x0000021ead9f4b80, 0x0000021eadac96a0, 0x0000021eadc3c490,
+0x0000021eadc3cdc0, 0x0000021eadc3d8a0, 0x0000021eadc40c10, 0x0000021eadcbd440,
+0x0000021eadc261f0, 0x0000021eadc26d00, 0x0000021ef30277b0, 0x0000021ef3f6e380,
+0x0000021ef4337f40, 0x0000021f0078f6f0, 0x0000021f004e4fd0, 0x0000021f00c40c40,
+0x0000021f00c3f800, 0x0000021f00c3d490, 0x0000021f001899b0, 0x0000021f00c3deb0,
+0x0000021f00c3e8d0, 0x0000021f00c3ede0, 0x0000021f09371020, 0x0000021f0936f1c0,
+0x0000021f0936e290, 0x0000021f0936f6d0, 0x0000021f0936d360, 0x0000021f09372e80,
+0x0000021f09372460, 0x0000021f09371530, 0x0000021f093738a0
+}
+
+Java Threads: ( => current thread )
+=>0x0000021ef6f79c50 JavaThread "main" [_thread_in_Java, id=13824, stack(0x000000433ce00000,0x000000433cf00000)]
+  0x0000021eff4fe3a0 JavaThread "Reference Handler" daemon [_thread_blocked, id=2204, stack(0x000000433d500000,0x000000433d600000)]
+  0x0000021eff500f70 JavaThread "Finalizer" daemon [_thread_blocked, id=1092, stack(0x000000433d600000,0x000000433d700000)]
+  0x0000021eff50e800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=18396, stack(0x000000433d700000,0x000000433d800000)]
+  0x0000021ead9b2520 JavaThread "Attach Listener" daemon [_thread_blocked, id=7540, stack(0x000000433d800000,0x000000433d900000)]
+  0x0000021ead9b4ef0 JavaThread "Service Thread" daemon [_thread_blocked, id=4480, stack(0x000000433d900000,0x000000433da00000)]
+  0x0000021ead9b78c0 JavaThread "Monitor Deflation Thread" daemon [_thread_blocked, id=18128, stack(0x000000433da00000,0x000000433db00000)]
+  0x0000021ead9baa70 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=2976, stack(0x000000433db00000,0x000000433dc00000)]
+  0x0000021ead9c4490 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=3636, stack(0x000000433dc00000,0x000000433dd00000)]
+  0x0000021ead9f4b80 JavaThread "Sweeper thread" daemon [_thread_blocked, id=21080, stack(0x000000433dd00000,0x000000433de00000)]
+  0x0000021eadac96a0 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=20120, stack(0x000000433de00000,0x000000433df00000)]
+  0x0000021eadc3c490 JavaThread "C1 CompilerThread1" daemon [_thread_blocked, id=4284, stack(0x000000433df00000,0x000000433e000000)]
+  0x0000021eadc3cdc0 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=3672, stack(0x000000433e000000,0x000000433e100000)]
+  0x0000021eadc3d8a0 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=5896, stack(0x000000433e100000,0x000000433e200000)]
+  0x0000021eadc40c10 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=10272, stack(0x000000433e200000,0x000000433e300000)]
+  0x0000021eadcbd440 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_blocked, id=7740, stack(0x000000433e300000,0x000000433e400000)]
+  0x0000021eadc261f0 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=8732, stack(0x000000433e400000,0x000000433e500000)]
+  0x0000021eadc26d00 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=17876, stack(0x000000433e500000,0x000000433e600000)]
+  0x0000021ef30277b0 JavaThread "Notification Thread" daemon [_thread_blocked, id=9692, stack(0x000000433e600000,0x000000433e700000)]
+  0x0000021ef3f6e380 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=21988, stack(0x000000433e800000,0x000000433e900000)]
+  0x0000021ef4337f40 JavaThread "C2 CompilerThread3" daemon [_thread_blocked, id=21020, stack(0x000000433f600000,0x000000433f700000)]
+  0x0000021f0078f6f0 JavaThread "C2 CompilerThread4" daemon [_thread_blocked, id=6220, stack(0x000000433f800000,0x000000433f900000)]
+  0x0000021f004e4fd0 JavaThread "C2 CompilerThread5" daemon [_thread_blocked, id=9368, stack(0x000000433f900000,0x000000433fa00000)]
+  0x0000021f00c40c40 JavaThread "Catalina-utility-1" [_thread_blocked, id=20728, stack(0x000000433f500000,0x000000433f600000)]
+  0x0000021f00c3f800 JavaThread "Catalina-utility-2" [_thread_blocked, id=8508, stack(0x000000433fb00000,0x000000433fc00000)]
+  0x0000021f00c3d490 JavaThread "container-0" [_thread_blocked, id=7696, stack(0x000000433fc00000,0x000000433fd00000)]
+  0x0000021f001899b0 JavaThread "C2 CompilerThread6" daemon [_thread_blocked, id=13492, stack(0x000000433fd00000,0x000000433fe00000)]
+  0x0000021f00c3deb0 JavaThread "http-nio-8080-exec-1" daemon [_thread_blocked, id=12404, stack(0x000000433fe00000,0x000000433ff00000)]
+  0x0000021f00c3e8d0 JavaThread "http-nio-8080-exec-2" daemon [_thread_blocked, id=1532, stack(0x000000433ff00000,0x0000004340000000)]
+  0x0000021f00c3ede0 JavaThread "http-nio-8080-exec-3" daemon [_thread_blocked, id=5136, stack(0x0000004340000000,0x0000004340100000)]
+  0x0000021f09371020 JavaThread "http-nio-8080-exec-4" daemon [_thread_blocked, id=404, stack(0x0000004340100000,0x0000004340200000)]
+  0x0000021f0936f1c0 JavaThread "http-nio-8080-exec-5" daemon [_thread_blocked, id=9940, stack(0x0000004340200000,0x0000004340300000)]
+  0x0000021f0936e290 JavaThread "http-nio-8080-exec-6" daemon [_thread_blocked, id=2728, stack(0x0000004340300000,0x0000004340400000)]
+  0x0000021f0936f6d0 JavaThread "http-nio-8080-exec-7" daemon [_thread_blocked, id=22308, stack(0x0000004340400000,0x0000004340500000)]
+  0x0000021f0936d360 JavaThread "http-nio-8080-exec-8" daemon [_thread_blocked, id=13052, stack(0x0000004340500000,0x0000004340600000)]
+  0x0000021f09372e80 JavaThread "http-nio-8080-exec-9" daemon [_thread_blocked, id=20156, stack(0x0000004340600000,0x0000004340700000)]
+  0x0000021f09372460 JavaThread "http-nio-8080-exec-10" daemon [_thread_blocked, id=888, stack(0x0000004340700000,0x0000004340800000)]
+  0x0000021f09371530 JavaThread "http-nio-8080-Poller" daemon [_thread_in_native, id=3736, stack(0x0000004340800000,0x0000004340900000)]
+  0x0000021f093738a0 JavaThread "http-nio-8080-Acceptor" daemon [_thread_in_native, id=13740, stack(0x0000004340900000,0x0000004340a00000)]
+
+Other Threads:
+  0x0000021eff4fa4f0 VMThread "VM Thread" [stack: 0x000000433d400000,0x000000433d500000] [id=2492]
+  0x0000021ef30282a0 WatcherThread [stack: 0x000000433e700000,0x000000433e800000] [id=5180]
+  0x0000021ef6fd72e0 GCTaskThread "GC Thread#0" [stack: 0x000000433cf00000,0x000000433d000000] [id=6872]
+  0x0000021ef3ec2710 GCTaskThread "GC Thread#1" [stack: 0x000000433e900000,0x000000433ea00000] [id=17584]
+  0x0000021f00093db0 GCTaskThread "GC Thread#2" [stack: 0x000000433ea00000,0x000000433eb00000] [id=7388]
+  0x0000021f00094480 GCTaskThread "GC Thread#3" [stack: 0x000000433eb00000,0x000000433ec00000] [id=7856]
+  0x0000021f00094740 GCTaskThread "GC Thread#4" [stack: 0x000000433ec00000,0x000000433ed00000] [id=21828]
+  0x0000021f001c6780 GCTaskThread "GC Thread#5" [stack: 0x000000433ed00000,0x000000433ee00000] [id=7232]
+  0x0000021f001c6a40 GCTaskThread "GC Thread#6" [stack: 0x000000433ee00000,0x000000433ef00000] [id=11716]
+  0x0000021f00428720 GCTaskThread "GC Thread#7" [stack: 0x000000433ef00000,0x000000433f000000] [id=20416]
+  0x0000021f004289e0 GCTaskThread "GC Thread#8" [stack: 0x000000433f000000,0x000000433f100000] [id=17552]
+  0x0000021f00428ca0 GCTaskThread "GC Thread#9" [stack: 0x000000433f100000,0x000000433f200000] [id=8128]
+  0x0000021f00428f60 GCTaskThread "GC Thread#10" [stack: 0x000000433f200000,0x000000433f300000] [id=11644]
+  0x0000021ef41f5050 GCTaskThread "GC Thread#11" [stack: 0x000000433f300000,0x000000433f400000] [id=19112]
+  0x0000021ef41f34d0 GCTaskThread "GC Thread#12" [stack: 0x000000433f400000,0x000000433f500000] [id=14960]
+  0x0000021ef6fe2150 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000433d000000,0x000000433d100000] [id=4260]
+  0x0000021ef6fe2b70 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000433d100000,0x000000433d200000] [id=1660]
+  0x0000021ef41f4810 ConcurrentGCThread "G1 Conc#1" [stack: 0x000000433f700000,0x000000433f800000] [id=6692]
+  0x0000021ef41f4290 ConcurrentGCThread "G1 Conc#2" [stack: 0x000000433fa00000,0x000000433fb00000] [id=10108]
+  0x0000021ef700eb20 ConcurrentGCThread "G1 Refine#0" [stack: 0x000000433d200000,0x000000433d300000] [id=22412]
+  0x0000021eff493560 ConcurrentGCThread "G1 Service" [stack: 0x000000433d300000,0x000000433d400000] [id=2244]
+
+Threads with active compile tasks:
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x0000000504800000, size: 12216 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000021eae000000-0x0000021eaebb0000-0x0000021eaebb0000), size 12255232, SharedBaseAddress: 0x0000021eae000000, ArchiveRelocationMode: 1.
+Compressed class space mapped at: 0x0000021eaf000000-0x0000021eef000000, reserved size: 1073741824
+Narrow klass base: 0x0000021eae000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CPUs: 16 total, 16 available
+ Memory: 48853M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Heap Region Size: 8M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 768M
+ Heap Max Capacity: 12216M
+ Pre-touch: Disabled
+ Parallel Workers: 13
+ Concurrent Workers: 3
+ Concurrent Refinement Workers: 13
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 114688K, used 37867K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 3 young (24576K), 1 survivors (8192K)
+ Metaspace       used 57096K, committed 57664K, reserved 1114112K
+  class space    used 7565K, committed 7872K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x0000000504800000, 0x0000000504fbe600, 0x0000000505000000| 96%| O|  |TAMS 0x0000000504fbe600, 0x0000000504800000| Untracked 
+|   1|0x0000000505000000, 0x0000000505800000, 0x0000000505800000|100%| O|  |TAMS 0x0000000505000000, 0x0000000505000000| Untracked 
+|   2|0x0000000505800000, 0x0000000505800000, 0x0000000506000000|  0%| F|  |TAMS 0x0000000505800000, 0x0000000505800000| Untracked 
+|   3|0x0000000506000000, 0x0000000506000000, 0x0000000506800000|  0%| F|  |TAMS 0x0000000506000000, 0x0000000506000000| Untracked 
+|   4|0x0000000506800000, 0x0000000506eafa00, 0x0000000507000000| 83%| O|  |TAMS 0x0000000506800000, 0x0000000506800000| Untracked 
+|   5|0x0000000507000000, 0x0000000507000000, 0x0000000507800000|  0%| F|  |TAMS 0x0000000507000000, 0x0000000507000000| Untracked 
+|   6|0x0000000507800000, 0x0000000507e8cc30, 0x0000000508000000| 81%| S|CS|TAMS 0x0000000507800000, 0x0000000507800000| Complete 
+|   7|0x0000000508000000, 0x0000000508000000, 0x0000000508800000|  0%| F|  |TAMS 0x0000000508000000, 0x0000000508000000| Untracked 
+|   8|0x0000000508800000, 0x0000000508800000, 0x0000000509000000|  0%| F|  |TAMS 0x0000000508800000, 0x0000000508800000| Untracked 
+|   9|0x0000000509000000, 0x0000000509000000, 0x0000000509800000|  0%| F|  |TAMS 0x0000000509000000, 0x0000000509000000| Untracked 
+|  10|0x0000000509800000, 0x0000000509800000, 0x000000050a000000|  0%| F|  |TAMS 0x0000000509800000, 0x0000000509800000| Untracked 
+|  92|0x0000000532800000, 0x0000000532800000, 0x0000000533000000|  0%| F|  |TAMS 0x0000000532800000, 0x0000000532800000| Untracked 
+|  94|0x0000000533800000, 0x0000000533e311e0, 0x0000000534000000| 77%| E|  |TAMS 0x0000000533800000, 0x0000000533800000| Complete 
+|  95|0x0000000534000000, 0x0000000534800000, 0x0000000534800000|100%| E|CS|TAMS 0x0000000534000000, 0x0000000534000000| Complete 
+
+Card table byte_map: [0x0000021e907e0000,0x0000021e91fc0000] _byte_map_base: 0x0000021e8dfbc000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x0000021ef6fd8910, (CMBitMap*) 0x0000021ef6fd8950
+ Prev Bits: [0x0000021e937a0000, 0x0000021e9f680000)
+ Next Bits: [0x0000021e9f680000, 0x0000021eab560000)
+
+Polling page: 0x0000021ef6710000
+
+Metaspace:
+
+Usage:
+  Non-class:     48.37 MB used.
+      Class:      7.39 MB used.
+       Both:     55.76 MB used.
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,      48.62 MB ( 76%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,       7.69 MB ( <1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,      56.31 MB (  5%) committed. 
+
+Chunk freelists:
+   Non-Class:  14.94 MB
+       Class:  8.36 MB
+        Both:  23.30 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 59.00 MB
+CDS: on
+MetaspaceReclaimPolicy: balanced
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - new_chunks_are_fully_committed: 0.
+ - uncommit_free_chunks: 1.
+ - use_allocation_guard: 0.
+ - handle_deallocations: 1.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 6.
+num_arena_births: 742.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 901.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 6.
+num_chunks_taken_from_freelist: 2720.
+num_chunk_merges: 3.
+num_chunk_splits: 1919.
+num_chunks_enlarged: 1470.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=119168Kb used=4411Kb max_used=5478Kb free=114756Kb
+ bounds [0x0000021e87ba0000, 0x0000021e88100000, 0x0000021e8f000000]
+CodeHeap 'profiled nmethods': size=119104Kb used=11535Kb max_used=12422Kb free=107568Kb
+ bounds [0x0000021e80000000, 0x0000021e80c30000, 0x0000021e87450000]
+CodeHeap 'non-nmethods': size=7488Kb used=3041Kb max_used=3149Kb free=4446Kb
+ bounds [0x0000021e87450000, 0x0000021e87780000, 0x0000021e87ba0000]
+ total_blobs=5847 nmethods=5252 adapters=502
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 3.595 Thread 0x0000021eadc3d8a0 6398       3       com.sun.org.apache.xerces.internal.dom.CoreDocumentImpl::setUserData (179 bytes)
+Event: 3.595 Thread 0x0000021eadc3c490 nmethod 6396 0x0000021e80534110 code [0x0000021e805342c0, 0x0000021e805344f8]
+Event: 3.595 Thread 0x0000021eadc3c490 6399       3       com.sun.org.apache.xerces.internal.dom.ParentNode$UserDataRecord::<init> (20 bytes)
+Event: 3.595 Thread 0x0000021eadc3cdc0 nmethod 6387 0x0000021e809e2490 code [0x0000021e809e29e0, 0x0000021e809e5618]
+Event: 3.595 Thread 0x0000021ead9c4490 nmethod 6397 0x0000021e801a3290 code [0x0000021e801a3440, 0x0000021e801a36f8]
+Event: 3.595 Thread 0x0000021eadc3cdc0 6400       3       com.ctc.wstx.sr.BasicStreamReader::readTextPrimary (447 bytes)
+Event: 3.595 Thread 0x0000021eadc3c490 nmethod 6399 0x0000021e806b9210 code [0x0000021e806b93c0, 0x0000021e806b9658]
+Event: 3.595 Thread 0x0000021ead9c4490 6402       3       com.ctc.wstx.sr.InputElementStack::validateEndElement (56 bytes)
+Event: 3.595 Thread 0x0000021eadc3c490 6403       3       com.ctc.wstx.sr.InputElementStack::pop (95 bytes)
+Event: 3.595 Thread 0x0000021ead9c4490 nmethod 6402 0x0000021e8038bd90 code [0x0000021e8038bf60, 0x0000021e8038c2f8]
+Event: 3.595 Thread 0x0000021ead9c4490 6404       3       com.sun.org.apache.xerces.internal.dom.CharacterDataImpl::<init> (11 bytes)
+Event: 3.595 Thread 0x0000021eadc3c490 nmethod 6403 0x0000021e8036d610 code [0x0000021e8036d800, 0x0000021e8036df68]
+Event: 3.596 Thread 0x0000021eadc3c490 6405       3       com.ctc.wstx.sr.BasicStreamReader::handleStartElem (296 bytes)
+Event: 3.596 Thread 0x0000021ead9c4490 nmethod 6404 0x0000021e80771a90 code [0x0000021e80771c40, 0x0000021e80771f38]
+Event: 3.596 Thread 0x0000021eadc3d8a0 nmethod 6398 0x0000021e802a9810 code [0x0000021e802a9ae0, 0x0000021e802aaf98]
+Event: 3.596 Thread 0x0000021ead9c4490 6406       3       com.sun.org.apache.xerces.internal.dom.TextImpl::<init> (7 bytes)
+Event: 3.596 Thread 0x0000021ead9c4490 nmethod 6406 0x0000021e803b3d90 code [0x0000021e803b3f40, 0x0000021e803b4298]
+Event: 3.596 Thread 0x0000021eadc3cdc0 nmethod 6400 0x0000021e803b6590 code [0x0000021e803b6880, 0x0000021e803b7d98]
+Event: 3.596 Thread 0x0000021eadc3c490 nmethod 6405 0x0000021e8032ae10 code [0x0000021e8032b0a0, 0x0000021e8032bb68]
+Event: 3.597 Thread 0x0000021ead9baa70 nmethod 6242% 0x0000021e87fe3e90 code [0x0000021e87fe42e0, 0x0000021e87fe9f78]
+
+GC Heap History (18 events):
+Event: 0.367 GC heap before
+{Heap before GC invocations=0 (full 0):
+ garbage-first heap   total 786432K, used 32768K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 4 young (32768K), 0 survivors (0K)
+ Metaspace       used 5934K, committed 6144K, reserved 1114112K
+  class space    used 681K, committed 832K, reserved 1048576K
+}
+Event: 0.369 GC heap after
+{Heap after GC invocations=1 (full 0):
+ garbage-first heap   total 786432K, used 8142K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 5934K, committed 6144K, reserved 1114112K
+  class space    used 681K, committed 832K, reserved 1048576K
+}
+Event: 0.555 GC heap before
+{Heap before GC invocations=1 (full 0):
+ garbage-first heap   total 786432K, used 24526K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 4 young (32768K), 1 survivors (8192K)
+ Metaspace       used 11013K, committed 11264K, reserved 1114112K
+  class space    used 1385K, committed 1536K, reserved 1048576K
+}
+Event: 0.558 GC heap after
+{Heap after GC invocations=2 (full 0):
+ garbage-first heap   total 786432K, used 9623K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 11013K, committed 11264K, reserved 1114112K
+  class space    used 1385K, committed 1536K, reserved 1048576K
+}
+Event: 0.868 GC heap before
+{Heap before GC invocations=2 (full 0):
+ garbage-first heap   total 786432K, used 58775K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 8 young (65536K), 1 survivors (8192K)
+ Metaspace       used 19800K, committed 19968K, reserved 1114112K
+  class space    used 2499K, committed 2560K, reserved 1048576K
+}
+Event: 0.869 GC heap after
+{Heap after GC invocations=3 (full 0):
+ garbage-first heap   total 786432K, used 13359K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 19800K, committed 19968K, reserved 1114112K
+  class space    used 2499K, committed 2560K, reserved 1048576K
+}
+Event: 0.956 GC heap before
+{Heap before GC invocations=3 (full 0):
+ garbage-first heap   total 786432K, used 29743K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 4 young (32768K), 1 survivors (8192K)
+ Metaspace       used 21293K, committed 21504K, reserved 1114112K
+  class space    used 2676K, committed 2816K, reserved 1048576K
+}
+Event: 0.957 GC heap after
+{Heap after GC invocations=4 (full 0):
+ garbage-first heap   total 786432K, used 15016K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 21293K, committed 21504K, reserved 1114112K
+  class space    used 2676K, committed 2816K, reserved 1048576K
+}
+Event: 1.597 GC heap before
+{Heap before GC invocations=5 (full 0):
+ garbage-first heap   total 114688K, used 80552K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 10 young (81920K), 1 survivors (8192K)
+ Metaspace       used 31775K, committed 32128K, reserved 1114112K
+  class space    used 3967K, committed 4160K, reserved 1048576K
+}
+Event: 1.601 GC heap after
+{Heap after GC invocations=6 (full 0):
+ garbage-first heap   total 114688K, used 18715K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 2 young (16384K), 2 survivors (16384K)
+ Metaspace       used 31775K, committed 32128K, reserved 1114112K
+  class space    used 3967K, committed 4160K, reserved 1048576K
+}
+Event: 1.889 GC heap before
+{Heap before GC invocations=6 (full 0):
+ garbage-first heap   total 114688K, used 35099K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 5 young (40960K), 2 survivors (16384K)
+ Metaspace       used 35670K, committed 36096K, reserved 1114112K
+  class space    used 4445K, committed 4672K, reserved 1048576K
+}
+Event: 1.894 GC heap after
+{Heap after GC invocations=7 (full 0):
+ garbage-first heap   total 114688K, used 20420K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 35670K, committed 36096K, reserved 1114112K
+  class space    used 4445K, committed 4672K, reserved 1048576K
+}
+Event: 2.407 GC heap before
+{Heap before GC invocations=8 (full 0):
+ garbage-first heap   total 114688K, used 61380K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 7 young (57344K), 1 survivors (8192K)
+ Metaspace       used 41791K, committed 42240K, reserved 1114112K
+  class space    used 5325K, committed 5568K, reserved 1048576K
+}
+Event: 2.409 GC heap after
+{Heap after GC invocations=9 (full 0):
+ garbage-first heap   total 114688K, used 23240K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 41791K, committed 42240K, reserved 1114112K
+  class space    used 5325K, committed 5568K, reserved 1048576K
+}
+Event: 2.881 GC heap before
+{Heap before GC invocations=9 (full 0):
+ garbage-first heap   total 114688K, used 72392K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 7 young (57344K), 1 survivors (8192K)
+ Metaspace       used 46155K, committed 46592K, reserved 1114112K
+  class space    used 5930K, committed 6144K, reserved 1048576K
+}
+Event: 2.883 GC heap after
+{Heap after GC invocations=10 (full 0):
+ garbage-first heap   total 114688K, used 26459K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 46155K, committed 46592K, reserved 1114112K
+  class space    used 5930K, committed 6144K, reserved 1048576K
+}
+Event: 3.484 GC heap before
+{Heap before GC invocations=10 (full 0):
+ garbage-first heap   total 114688K, used 75611K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 7 young (57344K), 1 survivors (8192K)
+ Metaspace       used 54258K, committed 54720K, reserved 1114112K
+  class space    used 7252K, committed 7488K, reserved 1048576K
+}
+Event: 3.487 GC heap after
+{Heap after GC invocations=11 (full 0):
+ garbage-first heap   total 114688K, used 29675K [0x0000000504800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 54258K, committed 54720K, reserved 1114112K
+  class space    used 7252K, committed 7488K, reserved 1048576K
+}
+
+Dll operation events (13 events):
+Event: 0.004 Loaded shared library C:\Users\erza5\.jdks\corretto-17.0.12\bin\java.dll
+Event: 0.004 Loaded shared library C:\Users\erza5\.jdks\corretto-17.0.12\bin\zip.dll
+Event: 0.013 Loaded shared library C:\Users\erza5\.jdks\corretto-17.0.12\bin\jsvml.dll
+Event: 0.072 Loaded shared library C:\Users\erza5\.jdks\corretto-17.0.12\bin\instrument.dll
+Event: 0.079 Loaded shared library C:\Users\erza5\.jdks\corretto-17.0.12\bin\net.dll
+Event: 0.079 Loaded shared library C:\Users\erza5\.jdks\corretto-17.0.12\bin\nio.dll
+Event: 0.081 Loaded shared library C:\Users\erza5\.jdks\corretto-17.0.12\bin\zip.dll
+Event: 0.133 Loaded shared library C:\Users\erza5\.jdks\corretto-17.0.12\bin\jimage.dll
+Event: 0.946 Loaded shared library C:\Users\erza5\.jdks\corretto-17.0.12\bin\sunmscapi.dll
+Event: 1.867 Loaded shared library C:\Users\erza5\.jdks\corretto-17.0.12\bin\management.dll
+Event: 1.868 Loaded shared library C:\Users\erza5\.jdks\corretto-17.0.12\bin\management_ext.dll
+Event: 3.073 Loaded shared library C:\Users\erza5\.jdks\corretto-17.0.12\bin\extnet.dll
+Event: 3.501 Loaded shared library C:\Users\erza5\.jdks\corretto-17.0.12\bin\verify.dll
+
+Deoptimization events (20 events):
+Event: 3.562 Thread 0x0000021ef6f79c50 DEOPT PACKING pc=0x0000021e806f52e4 sp=0x000000433cefce40
+Event: 3.562 Thread 0x0000021ef6f79c50 DEOPT UNPACKING pc=0x0000021e874aace3 sp=0x000000433cefc3b8 mode 1
+Event: 3.562 Thread 0x0000021ef6f79c50 DEOPT PACKING pc=0x0000021e807955e4 sp=0x000000433cefc0f0
+Event: 3.562 Thread 0x0000021ef6f79c50 DEOPT UNPACKING pc=0x0000021e874aace3 sp=0x000000433cefb6e8 mode 1
+Event: 3.562 Thread 0x0000021ef6f79c50 DEOPT PACKING pc=0x0000021e807955e4 sp=0x000000433cefc230
+Event: 3.562 Thread 0x0000021ef6f79c50 DEOPT UNPACKING pc=0x0000021e874aace3 sp=0x000000433cefb828 mode 1
+Event: 3.562 Thread 0x0000021ef6f79c50 DEOPT PACKING pc=0x0000021e807955e4 sp=0x000000433cefc370
+Event: 3.562 Thread 0x0000021ef6f79c50 DEOPT UNPACKING pc=0x0000021e874aace3 sp=0x000000433cefb968 mode 1
+Event: 3.566 Thread 0x0000021ef6f79c50 DEOPT PACKING pc=0x0000021e807955e4 sp=0x000000433cefbd60
+Event: 3.566 Thread 0x0000021ef6f79c50 DEOPT UNPACKING pc=0x0000021e874aace3 sp=0x000000433cefb358 mode 1
+Event: 3.566 Thread 0x0000021ef6f79c50 DEOPT PACKING pc=0x0000021e807955e4 sp=0x000000433cefbea0
+Event: 3.566 Thread 0x0000021ef6f79c50 DEOPT UNPACKING pc=0x0000021e874aace3 sp=0x000000433cefb498 mode 1
+Event: 3.567 Thread 0x0000021ef6f79c50 DEOPT PACKING pc=0x0000021e807955e4 sp=0x000000433cefbfe0
+Event: 3.567 Thread 0x0000021ef6f79c50 DEOPT UNPACKING pc=0x0000021e874aace3 sp=0x000000433cefb5d8 mode 1
+Event: 3.587 Thread 0x0000021ef6f79c50 DEOPT PACKING pc=0x0000021e807955e4 sp=0x000000433cefbce0
+Event: 3.587 Thread 0x0000021ef6f79c50 DEOPT UNPACKING pc=0x0000021e874aace3 sp=0x000000433cefb2d8 mode 1
+Event: 3.587 Thread 0x0000021ef6f79c50 DEOPT PACKING pc=0x0000021e807955e4 sp=0x000000433cefbe20
+Event: 3.587 Thread 0x0000021ef6f79c50 DEOPT UNPACKING pc=0x0000021e874aace3 sp=0x000000433cefb418 mode 1
+Event: 3.588 Thread 0x0000021ef6f79c50 DEOPT PACKING pc=0x0000021e807955e4 sp=0x000000433cefbf60
+Event: 3.588 Thread 0x0000021ef6f79c50 DEOPT UNPACKING pc=0x0000021e874aace3 sp=0x000000433cefb558 mode 1
+
+Classes loaded (20 events):
+Event: 3.587 Loading class org/apache/cxf/helpers/Messages_ru
+Event: 3.587 Loading class org/apache/cxf/helpers/Messages_ru done
+Event: 3.588 Loading class org/apache/cxf/helpers/Messages_ru_RU
+Event: 3.588 Loading class org/apache/cxf/helpers/Messages_ru_RU done
+Event: 3.588 Loading class com/sun/xml/internal/messaging/saaj/soap/SOAPDocumentImpl
+Event: 3.588 Loading class com/sun/xml/internal/messaging/saaj/soap/SOAPDocumentImpl done
+Event: 3.588 Loading class com/ctc/wstx/io/WstxInputLocation
+Event: 3.588 Loading class com/ctc/wstx/io/WstxInputLocation done
+Event: 3.589 Loading class com/ctc/wstx/sr/Element
+Event: 3.589 Loading class com/ctc/wstx/sr/Element done
+Event: 3.589 Loading class com/ctc/wstx/sr/Attribute
+Event: 3.589 Loading class com/ctc/wstx/sr/Attribute done
+Event: 3.589 Loading class org/apache/cxf/staxutils/StaxUtils$2
+Event: 3.589 Loading class org/apache/cxf/staxutils/StaxUtils$2 done
+Event: 3.589 Loading class org/apache/cxf/staxutils/StaxUtils$LocationUserDataHandler
+Event: 3.589 Loading class org/apache/cxf/staxutils/StaxUtils$LocationUserDataHandler done
+Event: 3.589 Loading class com/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord
+Event: 3.589 Loading class com/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord done
+Event: 3.590 Loading class org/w3c/dom/DocumentFragment
+Event: 3.590 Loading class org/w3c/dom/DocumentFragment done
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 2.839 Thread 0x0000021ef6f79c50 Implicit null exception at 0x0000021e87d599ba to 0x0000021e87d59bf0
+Event: 2.918 Thread 0x0000021ef6f79c50 Implicit null exception at 0x0000021e87de560a to 0x0000021e87de5765
+Event: 2.988 Thread 0x0000021ef6f79c50 Exception <a 'java/lang/NoSuchMethodError'{0x0000000534698b30}: 'double java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object)'> (0x0000000534698b30) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 2.989 Thread 0x0000021ef6f79c50 Exception <a 'java/lang/NoSuchMethodError'{0x00000005346ab388}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000005346ab388) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 3.005 Thread 0x0000021ef6f79c50 Exception <a 'java/lang/IncompatibleClassChangeError'{0x00000005347d46c0}: Found class java.lang.Object, but interface was expected> (0x00000005347d46c0) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 826]
+Event: 3.049 Thread 0x0000021ef6f79c50 Exception <a 'java/lang/NoSuchMethodError'{0x0000000533b4b3f8}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, double)'> (0x0000000533b4b3f8) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 3.057 Thread 0x0000021ef6f79c50 Exception <a 'java/lang/NoSuchMethodError'{0x0000000533bb1430}: 'double java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000533bb1430) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 3.068 Thread 0x0000021ef6f79c50 Exception <a 'java/lang/NoSuchMethodError'{0x0000000533c28a08}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, int, java.lang.Object, java.lang.Object)'> (0x0000000533c28a08) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 3.097 Thread 0x0000021ef6f79c50 Implicit null exception at 0x0000021e87d3205d to 0x0000021e87d3234c
+Event: 3.141 Thread 0x0000021ef6f79c50 Exception <a 'java/lang/NoSuchMethodError'{0x0000000532aece38}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000532aece38) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 3.239 Thread 0x0000021ef6f79c50 Exception <a 'java/lang/NoSuchMethodError'{0x0000000509a57618}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, int)'> (0x0000000509a57618) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 3.239 Thread 0x0000021ef6f79c50 Exception <a 'java/lang/NoSuchMethodError'{0x0000000509a5b858}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, int)'> (0x0000000509a5b858) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 3.239 Thread 0x0000021ef6f79c50 Exception <a 'java/lang/NoSuchMethodError'{0x0000000509a5f340}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x0000000509a5f340) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 3.319 Thread 0x0000021ef6f79c50 Exception <a 'java/lang/NoSuchMethodError'{0x0000000509108c78}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeInterface(java.lang.Object, java.lang.Object)'> (0x0000000509108c78) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 3.338 Thread 0x0000021ef6f79c50 Exception <a 'java/lang/IncompatibleClassChangeError'{0x0000000509312cd0}: Found class java.lang.Object, but interface was expected> (0x0000000509312cd0) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 826]
+Event: 3.349 Thread 0x0000021ef6f79c50 Implicit null exception at 0x0000021e87d2cd01 to 0x0000021e87d2ced8
+Event: 3.489 Thread 0x0000021ef6f79c50 Exception <a 'java/lang/NullPointerException'{0x000000053413ae38}> (0x000000053413ae38) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 1350]
+Event: 3.491 Thread 0x0000021ef30277b0 Exception <a 'java/lang/NoSuchMethodError'{0x0000000534030260}: 'long java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x0000000534030260) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 3.502 Thread 0x0000021ef6f79c50 Exception <a 'java/io/FileNotFoundException'{0x00000005342ef9b0}> (0x00000005342ef9b0) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 3.562 Thread 0x0000021ef6f79c50 Exception <a 'java/io/FileNotFoundException'{0x00000005339934a0}> (0x00000005339934a0) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+
+VM Operations (20 events):
+Event: 3.104 Executing VM operation: HandshakeAllThreads
+Event: 3.104 Executing VM operation: HandshakeAllThreads done
+Event: 3.148 Executing VM operation: HandshakeAllThreads
+Event: 3.148 Executing VM operation: HandshakeAllThreads done
+Event: 3.333 Executing VM operation: ICBufferFull
+Event: 3.334 Executing VM operation: ICBufferFull done
+Event: 3.363 Executing VM operation: HandshakeAllThreads
+Event: 3.363 Executing VM operation: HandshakeAllThreads done
+Event: 3.459 Executing VM operation: HandshakeAllThreads
+Event: 3.459 Executing VM operation: HandshakeAllThreads done
+Event: 3.468 Executing VM operation: HandshakeAllThreads
+Event: 3.468 Executing VM operation: HandshakeAllThreads done
+Event: 3.484 Executing VM operation: G1CollectForAllocation
+Event: 3.487 Executing VM operation: G1CollectForAllocation done
+Event: 3.490 Executing VM operation: HandshakeAllThreads
+Event: 3.490 Executing VM operation: HandshakeAllThreads done
+Event: 3.528 Executing VM operation: HandshakeAllThreads
+Event: 3.528 Executing VM operation: HandshakeAllThreads done
+Event: 3.561 Executing VM operation: HandshakeAllThreads
+Event: 3.561 Executing VM operation: HandshakeAllThreads done
+
+Events (20 events):
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80b65310
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80b67f10
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80b68610
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80b68c10
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80ba8410
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80bacd90
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80bafc90
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80bb0790
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80bb1c90
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80bb3b10
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80bcdd10
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80bd0890
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80bd9410
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80bd9890
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80bd9e90
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80bda310
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80bdba10
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80bdca10
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80be0090
+Event: 3.532 Thread 0x0000021ead9f4b80 flushing nmethod 0x0000021e80be2e90
+
+
+Dynamic libraries:
+0x00007ff74a0c0000 - 0x00007ff74a0ce000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\java.exe
+0x00007ffcf2f90000 - 0x00007ffcf31a7000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffcf1e70000 - 0x00007ffcf1f34000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffcf07d0000 - 0x00007ffcf0b89000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffcf03b0000 - 0x00007ffcf04c1000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffceb190000 - 0x00007ffceb1a7000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\jli.dll
+0x00007ffcdea50000 - 0x00007ffcdea6b000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\VCRUNTIME140.dll
+0x00007ffcf2a50000 - 0x00007ffcf2bfe000 	C:\Windows\System32\USER32.dll
+0x00007ffcef4e0000 - 0x00007ffcef772000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.4391_none_2715d37f73803e96\COMCTL32.dll
+0x00007ffcf04d0000 - 0x00007ffcf04f6000 	C:\Windows\System32\win32u.dll
+0x00007ffcf27f0000 - 0x00007ffcf2819000 	C:\Windows\System32\GDI32.dll
+0x00007ffcf2740000 - 0x00007ffcf27e7000 	C:\Windows\System32\msvcrt.dll
+0x00007ffcf0b90000 - 0x00007ffcf0cab000 	C:\Windows\System32\gdi32full.dll
+0x00007ffcf05c0000 - 0x00007ffcf065a000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffcf2ec0000 - 0x00007ffcf2ef1000 	C:\Windows\System32\IMM32.DLL
+0x00007ffcdea40000 - 0x00007ffcdea4c000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\vcruntime140_1.dll
+0x00007ffcde9b0000 - 0x00007ffcdea3d000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\msvcp140.dll
+0x00007ffc66b00000 - 0x00007ffc6776a000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\server\jvm.dll
+0x00007ffcf1390000 - 0x00007ffcf1442000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffcf1260000 - 0x00007ffcf1307000 	C:\Windows\System32\sechost.dll
+0x00007ffcf0310000 - 0x00007ffcf0338000 	C:\Windows\System32\bcrypt.dll
+0x00007ffcf2930000 - 0x00007ffcf2a44000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffcf1310000 - 0x00007ffcf1381000 	C:\Windows\System32\WS2_32.dll
+0x00007ffcefba0000 - 0x00007ffcefbed000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ffced710000 - 0x00007ffced744000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffceead0000 - 0x00007ffceeada000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffcef780000 - 0x00007ffcef793000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ffcee2b0000 - 0x00007ffcee2c8000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffcde9a0000 - 0x00007ffcde9aa000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\jimage.dll
+0x00007ffcefbf0000 - 0x00007ffcefe22000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffcf2180000 - 0x00007ffcf250f000 	C:\Windows\System32\combase.dll
+0x00007ffcf2c60000 - 0x00007ffcf2d37000 	C:\Windows\System32\OLEAUT32.dll
+0x00007ffcefa70000 - 0x00007ffcefaa2000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffcf0290000 - 0x00007ffcf030b000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffcde8e0000 - 0x00007ffcde91b000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\jdwp.dll
+0x00007ffcde960000 - 0x00007ffcde96e000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\instrument.dll
+0x00007ffcde970000 - 0x00007ffcde995000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\java.dll
+0x00007ffcde940000 - 0x00007ffcde958000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\zip.dll
+0x00007ffcde490000 - 0x00007ffcde567000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\jsvml.dll
+0x00007ffcf1550000 - 0x00007ffcf1dc6000 	C:\Windows\System32\SHELL32.dll
+0x00007ffced890000 - 0x00007ffcee193000 	C:\Windows\SYSTEM32\windows.storage.dll
+0x00007ffced750000 - 0x00007ffced88f000 	C:\Windows\SYSTEM32\wintypes.dll
+0x00007ffcf1450000 - 0x00007ffcf1549000 	C:\Windows\System32\SHCORE.dll
+0x00007ffcf2820000 - 0x00007ffcf287e000 	C:\Windows\System32\shlwapi.dll
+0x00007ffcf01c0000 - 0x00007ffcf01eb000 	C:\Windows\SYSTEM32\profapi.dll
+0x00007ffcde8b0000 - 0x00007ffcde8bc000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\dt_socket.dll
+0x00007ffced370000 - 0x00007ffced39d000 	C:\Windows\SYSTEM32\IPHLPAPI.DLL
+0x00007ffcee6f0000 - 0x00007ffcee759000 	C:\Windows\system32\mswsock.dll
+0x00007ffcde8c0000 - 0x00007ffcde8d9000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\net.dll
+0x00007ffce91c0000 - 0x00007ffce92f6000 	C:\Windows\SYSTEM32\WINHTTP.dll
+0x00007ffcde470000 - 0x00007ffcde486000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\nio.dll
+0x00007ffcde440000 - 0x00007ffcde44e000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\sunmscapi.dll
+0x00007ffcf0660000 - 0x00007ffcf07c6000 	C:\Windows\System32\CRYPT32.dll
+0x00007ffceeaa0000 - 0x00007ffceeacd000 	C:\Windows\SYSTEM32\ncrypt.dll
+0x0000000069a50000 - 0x0000000069a75000 	C:\Program Files\Common Files\Crypto Pro\AppCompat\cpcrypt.dll
+0x00007ffcf2eb0000 - 0x00007ffcf2eb8000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffceea60000 - 0x00007ffceea97000 	C:\Windows\SYSTEM32\NTASN1.dll
+0x00007ffceff30000 - 0x00007ffceff4b000 	C:\Windows\SYSTEM32\CRYPTSP.dll
+0x0000000069a80000 - 0x0000000069a99000 	C:\Program Files\Common Files\Crypto Pro\AppCompat\cpadvai.dll
+0x00007ffcee970000 - 0x00007ffcee9a5000 	C:\Windows\system32\rsaenh.dll
+0x00007ffcee790000 - 0x00007ffcee7b8000 	C:\Windows\SYSTEM32\USERENV.dll
+0x00007ffcef440000 - 0x00007ffcef44c000 	C:\Windows\SYSTEM32\CRYPTBASE.dll
+0x00007ffcf0cb0000 - 0x00007ffcf0cb9000 	C:\Windows\System32\NSI.dll
+0x00007ffce8d10000 - 0x00007ffce8d29000 	C:\Windows\SYSTEM32\dhcpcsvc6.DLL
+0x00007ffce8cf0000 - 0x00007ffce8d0f000 	C:\Windows\SYSTEM32\dhcpcsvc.DLL
+0x00007ffced3a0000 - 0x00007ffced4a2000 	C:\Windows\SYSTEM32\DNSAPI.dll
+0x00007ffcde460000 - 0x00007ffcde469000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\management.dll
+0x00007ffcde450000 - 0x00007ffcde45b000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\management_ext.dll
+0x00007ffcde3e0000 - 0x00007ffcde3e9000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\extnet.dll
+0x00007ffcb6220000 - 0x00007ffcb6228000 	C:\Windows\system32\wshunix.dll
+0x00007ffceb440000 - 0x00007ffceb457000 	C:\Windows\system32\napinsp.dll
+0x00007ffceb420000 - 0x00007ffceb43b000 	C:\Windows\system32\pnrpnsp.dll
+0x00007ffceb400000 - 0x00007ffceb411000 	C:\Windows\System32\winrnr.dll
+0x00007ffce8780000 - 0x00007ffce8795000 	C:\Windows\system32\wshbth.dll
+0x00007ffce93d0000 - 0x00007ffce93f7000 	C:\Windows\system32\nlansp_c.dll
+0x00007ffceb3d0000 - 0x00007ffceb3da000 	C:\Windows\System32\rasadhlp.dll
+0x00007ffce8460000 - 0x00007ffce84e3000 	C:\Windows\System32\fwpuclnt.dll
+0x00007ffcde370000 - 0x00007ffcde380000 	C:\Users\erza5\.jdks\corretto-17.0.12\bin\verify.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\erza5\.jdks\corretto-17.0.12\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.4391_none_2715d37f73803e96;C:\Users\erza5\.jdks\corretto-17.0.12\bin\server;C:\Program Files\Common Files\Crypto Pro\AppCompat
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:53649,suspend=y,server=n -javaagent:C:\Users\erza5\AppData\Local\JetBrains\IdeaIC2024.2\captureAgent\debugger-agent.jar=file:/C:/Users/erza5/AppData/Local/Temp/capture.props -Dkotlinx.coroutines.debug.enable.creation.stack.trace=false -Ddebugger.agent.enable.coroutines=true -Dfile.encoding=UTF-8 
+java_command: com.example.demoCamelPOJOToSOAP.DemoCamelPojoToSoapApplication
+java_class_path (initial): C:\Users\erza5\Desktop\java\demoCamelPOJOToSOAP\demoCamelPOJOToSOAP\target\classes;C:\Users\erza5\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.7\spring-boot-starter-web-3.2.7.jar;C:\Users\erza5\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.7\spring-boot-starter-3.2.7.jar;C:\Users\erza5\.m2\repository\org\springframework\boot\spring-boot\3.2.7\spring-boot-3.2.7.jar;C:\Users\erza5\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.7\spring-boot-autoconfigure-3.2.7.jar;C:\Users\erza5\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.7\spring-boot-starter-logging-3.2.7.jar;C:\Users\erza5\.m2\repository\ch\qos\logback\logback-classic\1.4.14\logback-classic-1.4.14.jar;C:\Users\erza5\.m2\repository\ch\qos\logback\logback-core\1.4.14\logback-core-1.4.14.jar;C:\Users\erza5\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\erza5\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\erza5\.m2\repository\org\slf4j\jul-to-slf4j\2.0.13\jul-to-slf4j-2.0.13.jar;C:\Users\erza5\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\erza5\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\erza5\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.7\spring-boot-starter-json-3.2.7.jar;C:\Users\erza5\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.4\jackson-databind-2.15.4.jar;C:\Users\erza5\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.4\jackson-annotations-2.15.4.jar;C:\Users\erza5\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.4\jackson-core-2.15.4.jar;C:\Users\erza5\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.4\jackson-datatype-jdk8-2.15.4.jar;C:\Users\erza5\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.4\jackso
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 12                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 13                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 8388608                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 805306368                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 12809404416                               {product} {ergonomic}
+   size_t MaxNewSize                               = 7683964928                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 8388608                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 7602480                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122027880                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122027880                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 12809404416                            {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Git\cmd;C:\Users\erza5\AppData\Local\Microsoft\WindowsApps;;E:\Program Files (x86)\IntelliJ IDEA Community Edition 2024.2\bin;
+USERNAME=erza5
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD
+TMP=C:\Users\erza5\AppData\Local\Temp
+TEMP=C:\Users\erza5\AppData\Local\Temp
+
+
+
+Periodic native trim disabled
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22621 (10.0.22621.4391)
+OS uptime: 0 days 2:25 hours
+Hyper-V role detected
+
+CPU: total 16 (initial active 16) (16 cores per cpu, 2 threads per core) family 25 model 97 stepping 2 microcode 0x0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, avx512f, avx512dq, avx512cd, avx512bw, avx512vl, sha, fma, vzeroupper, avx512_vpopcntdq, avx512_vpclmulqdq, avx512_vaes, avx512_vnni, clflush, clflushopt, avx512_vbmi2, avx512_vbmi, hv
+Processor Information for all 16 processors :
+  Max Mhz: 3801, Current Mhz: 3801, Mhz Limit: 3801
+
+Memory: 4k page, system-wide physical 48853M (36178M free)
+TotalPageFile size 56021M (AvailPageFile size 37249M)
+current process WorkingSet (physical memory assigned to process): 408M, peak: 427M
+current process commit charge ("private bytes"): 462M, peak: 979M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.12+7-LTS) for windows-amd64 JRE (17.0.12+7-LTS), built on Jul 10 2024 20:46:33 by "Administrator" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.
