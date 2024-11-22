@@ -49,6 +49,6 @@ public class CountryServiceTest {
         Assertions.assertThatThrownBy(() -> countryService.getCountryByName("none")).isInstanceOf(SoapFault.class);
 
         Assertions.assertThatException().isThrownBy(()->countryService.getCountryByName("rer"));
-
     }
+
 }

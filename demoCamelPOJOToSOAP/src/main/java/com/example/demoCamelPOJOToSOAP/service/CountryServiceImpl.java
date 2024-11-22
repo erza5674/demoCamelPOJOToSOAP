@@ -1,6 +1,12 @@
 package com.example.demoCamelPOJOToSOAP.service;
 
 import com.example.demoCamelPOJOToSOAP.exceptions.NoSuchCountryException;
+import org.apache.camel.Exchange;
+import org.apache.camel.component.cxf.common.message.CxfConstants;
+import org.apache.cxf.message.MessageContentsList;
+import org.oorsprong.websamples.FullCountryInfo;
+import org.oorsprong.websamples.FullCountryInfoResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -8,7 +14,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Service("CountryServiceImpl")
 public class CountryServiceImpl implements CountryService{
-    private CountryRepository countryRepository = new CountryRepository();
+    @Autowired
+    private CountryRepository countryRepository;
 
     @Override
     public void addCountry(Country country) {
@@ -38,4 +45,12 @@ public class CountryServiceImpl implements CountryService{
     public String deleteCountry(String name) throws NoSuchCountryException {
         return countryRepository.deleteCountry(name);
     }
+
+    @Override
+    public String addCountryByISO(String iso) throws NoSuchCountryException {
+
+        return iso;
+    }
+
+
 }

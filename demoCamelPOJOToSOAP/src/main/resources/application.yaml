@@ -6,6 +6,8 @@ service:
   inbound:
     username: user
     useradd: "1"
+  externalEndpoint:
+    url: "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"
 
 spring:
   application:

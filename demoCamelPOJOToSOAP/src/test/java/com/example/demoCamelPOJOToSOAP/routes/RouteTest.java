@@ -43,9 +43,20 @@ public class RouteTest extends AbstractTest {
 
                 //Непосредственно роут который будем тестировать
                 from(direct("test-country-whatever"))
-                        .streamCaching()
+//                        .streamCaching()
                         .log(LoggingLevel.INFO, log, "OAUTH REQUEST:\n${headers}\n${body}")
                         .to(endpoint)
+                        .convertBodyTo(String.class);
+
+                //создаем эндпоинт совпадающий со стабом созданным ранее, на который будем стучаться
+                org.apache.camel.builder.endpoint.dsl.HttpEndpointBuilderFactory.HttpEndpointBuilder endpoint2 = http("localhost:34001/test")
+                        .bridgeEndpoint(true);
+
+                //второй тестовый роут
+                from(direct("cxf:bean:country"))
+                        .routeId("RealRouteTest")
+                        .log(LoggingLevel.INFO, log, "OAUTH REQUEST:\n${headers}\n${body}")
+                        .to(endpoint2)
                         .convertBodyTo(String.class);
             }
         });
@@ -59,6 +70,12 @@ public class RouteTest extends AbstractTest {
         var response = producerTemplate.requestBodyAndHeader("direct:test-country-whatever", "test", "CamelHttpMethod", "POST");
 
         Assertions.assertEquals("All OK", response.toString());
+
+        //ответ от кантрироута
+        var realRouteResponse = producerTemplate.requestBodyAndHeader( "direct:cxf:bean:country", "test", "CamelHttpMethod", "POST");
+        System.out.println(realRouteResponse.toString());
+        Assertions.assertEquals("All OK", realRouteResponse.toString());
+
     }
 }
 
