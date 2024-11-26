@@ -20,7 +20,7 @@ public class CountryServiceImpl implements CountryService{
     @Override
     public void addCountry(Country country) {
         countryRepository.addCountry(country);
-//        System.out.println("kek");
+        System.out.println("Country Added");
     }
 
     @Override

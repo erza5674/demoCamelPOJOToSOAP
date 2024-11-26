@@ -21,8 +21,6 @@ public class CamelTest extends CamelTestSupport {
     @Override
     protected void doSetUp() throws Exception {
         super.doSetUp();
-
-        context().
     }
 
     @Override
