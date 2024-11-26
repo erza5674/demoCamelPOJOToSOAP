@@ -28,25 +28,41 @@ public class RoutePOJOtoSOAP extends RouteBuilder {
     private String EXT_URL;
 
     @Autowired
-    private final RequestHandlerProcessor requestHandlerProcessor;
+    private RequestHandlerProcessor requestHandlerProcessor;
     @Autowired
-    private final ResponseHandlerProcessor responseHandlerProcessor;
+    private ResponseHandlerProcessor responseHandlerProcessor;
 
-    public RoutePOJOtoSOAP(RequestHandlerProcessor requestHandlerProcessor, ResponseHandlerProcessor responseHandlerProcessor){
-        this.requestHandlerProcessor = requestHandlerProcessor;
-        this.responseHandlerProcessor = responseHandlerProcessor;
-    }
+    @Autowired
+    private CxfEndpoint countryEndpoint;
+
+//    public RoutePOJOtoSOAP(RequestHandlerProcessor requestHandlerProcessor, ResponseHandlerProcessor responseHandlerProcessor){
+//        this.requestHandlerProcessor = requestHandlerProcessor;
+//        this.responseHandlerProcessor = responseHandlerProcessor;
+//    }
 
 
 
-    @Bean
-    CxfEndpoint country() {
-        CxfEndpoint countryEndpoint = new CxfEndpoint();
-        countryEndpoint.setServiceClass(CountryService.class);
-        countryEndpoint.setAddress("/country");
-        countryEndpoint.setDataFormat(DataFormat.POJO);
+//    @Bean
+//    CxfEndpoint country() {
+//        CxfEndpoint countryEndpoint = new CxfEndpoint();
+//        countryEndpoint.setServiceClass(CountryService.class);
+//        countryEndpoint.setAddress("/country");
+//        countryEndpoint.setDataFormat(DataFormat.POJO);
+//
+//        return countryEndpoint;
+//    }
 
-        return countryEndpoint;
+    private CxfEndpointBuilderFactory.CxfEndpointProducerBuilder getExternalEndpoint(){
+        String WSDL_LOCATION = "classpath:wsdl/CountryInfoService.wsdl";
+        CxfEndpointBuilderFactory.CxfEndpointProducerBuilder externalEndpoint;
+
+        externalEndpoint = StaticEndpointBuilders
+                .cxf(EXT_URL) //тут нужно передавать ссылку на сервис, но не wsdl, иначе сломается
+                .dataFormat(DataFormat.POJO)
+                .wsdlURL(WSDL_LOCATION) //тут ссылка на WSDL который храним у себя
+                .serviceClass(CountryInfoServiceSoapType.class.getName()); //Здесь нужно передать имя ИНТЕРЕФЕЙС сервисного класса, если передать на сам класс, то будет ошибка с портом
+
+        return  externalEndpoint;
     }
 
     @Override
@@ -54,26 +70,9 @@ public class RoutePOJOtoSOAP extends RouteBuilder {
 
         CxfEndpointBuilderFactory.CxfEndpointProducerBuilder externalEndpoint = getExternalEndpoint();
 
-//        onException(Exception.class)
-//                .log("BEEEEEEEEEEEEEEP")
-//                .process((exchange)->{
-//                    System.out.println("im called from lambda processor");
-//
-//                    var headers = exchange.getIn().getHeaders().toString();
-//                    var body    = exchange.getIn().getBody().toString();
-//                    System.out.println("HEADERS: " + headers);
-//                    System.out.println("BODY: " + body);
-//                } )
-//                .handled(true);
 
 //        from("cxf:bean:country")
-//                .log("take me home")
-//                .routeId("CountryRoute")
-//                .recipientList(simple("bean:CountryServiceImpl?method=${header.operationName}"))
-//                .process(new CountryRequestProcessor())
-//                .process(requestHandlerProcessor);
-
-        from("cxf:bean:country")
+        from(countryEndpoint)
                 .routeId("CountryRoute")
                 .log("start")
                 .recipientList(simple("bean:CountryServiceImpl?method=${header.operationName}"))
@@ -89,16 +88,5 @@ public class RoutePOJOtoSOAP extends RouteBuilder {
                 .log("end");
     }
 
-    private CxfEndpointBuilderFactory.CxfEndpointProducerBuilder getExternalEndpoint(){
-        String WSDL_LOCATION = "classpath:wsdl/CountryInfoService.wsdl";
-        CxfEndpointBuilderFactory.CxfEndpointProducerBuilder externalEndpoint;
 
-        externalEndpoint = StaticEndpointBuilders
-                .cxf(EXT_URL) //тут нужно передавать ссылку на сервис, но не wsdl, иначе сломается
-                .dataFormat(DataFormat.POJO)
-                .wsdlURL(WSDL_LOCATION) //тут ссылка на WSDL который храним у себя
-                .serviceClass(CountryInfoServiceSoapType.class.getName()); //Здесь нужно передать имя ИНТЕРЕФЕЙС сервисного класса, если передать на сам класс, то будет ошибка с портом
-
-        return  externalEndpoint;
-    }
 }
