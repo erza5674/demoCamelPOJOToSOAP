@@ -74,7 +74,7 @@ public class PipeRouteTest extends AbstractTest {
                 .contentType(ContentType.XML)
                 .body(is(responseXML));
     }
-}
+
 
     @Test
     void addCountryTest(){
