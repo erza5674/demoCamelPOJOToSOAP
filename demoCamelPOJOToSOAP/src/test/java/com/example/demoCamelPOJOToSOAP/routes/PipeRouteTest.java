@@ -23,21 +23,21 @@ public class PipeRouteTest extends AbstractTest {
 
     private static final String ROUTE_PATH = "/services/country";
 
-//    private static String EXTERNAL_ENDPOINT_NAME_PATTERN = "cxf://http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?dataFormat=POJO&serviceClass=org.oorsprong.websamples_countryinfo.CountryInfoServiceSoapType&wsdlURL=classpath:wsdl/CountryInfoService.wsdl";
+    //    private static String EXTERNAL_ENDPOINT_NAME_PATTERN = "cxf://http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?dataFormat=POJO&serviceClass=org.oorsprong.websamples_countryinfo.CountryInfoServiceSoapType&wsdlURL=classpath:wsdl/CountryInfoService.wsdl";
     private static String EXTERNAL_ENDPOINT_NAME_PATTERN = "externalEndpoint";
 
     @BeforeEach
     public void beforeEach() throws Exception {
 
         //TODO тут по идее надо подменить ендпоинт который отправляет данные на внешний соап сервер
-        AdviceWith.adviceWith(this.camelContext, "CountryRoute", route ->{
+        AdviceWith.adviceWith(this.camelContext, "CountryRoute", route -> {
             route.weaveById(EXTERNAL_ENDPOINT_NAME_PATTERN).replace().to("stub:services/country"); //подменяем продюсер эндпоинт на мок
         });
         camelContext.start();
     }
 
     @Test
-    void TestMockForProvider(){
+    void TestMockForProvider() {
 
         final String requestXML = """
                 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.demoCamelPOJOToSOAP.example.com/">
@@ -77,27 +77,27 @@ public class PipeRouteTest extends AbstractTest {
 
 
     @Test
-    void addCountryTest(){
+    void addCountryTest() {
         final String requestXml = """
-                                        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.demoCamelPOJOToSOAP.example.com/">
-                                        <soapenv:Header/>
-                                           <soapenv:Body>
-                                              <ser:addCountry>
-                                                 <!--Optional:-->
-                                                 <ser:arg0>
-                                                    <!--Optional:-->
-                                                    <capital>Moscow</capital>
-                                                    <!--Optional:-->
-                                                    <haveNukes>true</haveNukes>
-                                                    <!--Optional:-->
-                                                    <name>Russia</name>
-                                                    <!--Optional:-->
-                                                    <president>Putin</president>
-                                                 </ser:arg0>
-                                              </ser:addCountry>
-                                           </soapenv:Body>
-                                        </soapenv:Envelope>
-                                        """;
+                <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.demoCamelPOJOToSOAP.example.com/">
+                <soapenv:Header/>
+                   <soapenv:Body>
+                      <ser:addCountry>
+                         <!--Optional:-->
+                         <ser:arg0>
+                            <!--Optional:-->
+                            <capital>Moscow</capital>
+                            <!--Optional:-->
+                            <haveNukes>true</haveNukes>
+                            <!--Optional:-->
+                            <name>Russia</name>
+                            <!--Optional:-->
+                            <president>Putin</president>
+                         </ser:arg0>
+                      </ser:addCountry>
+                   </soapenv:Body>
+                </soapenv:Envelope>
+                """;
 
         final String responseXml = """
                 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><ns1:addCountryResponse xmlns:ns1="http://service.demoCamelPOJOToSOAP.example.com/"></ns1:addCountryResponse></soap:Body></soap:Envelope>""";
@@ -125,7 +125,7 @@ public class PipeRouteTest extends AbstractTest {
     }
 
     @Test
-    void addCountryByISOTest(){
+    void addCountryByISOTest() {
 
         final String requestXML = """
                 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.demoCamelPOJOToSOAP.example.com/">
@@ -163,7 +163,7 @@ public class PipeRouteTest extends AbstractTest {
     }
 
     @Test
-    void getCountryByName(){
+    void getCountryByName() {
         final String requestXML = """
                 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.demoCamelPOJOToSOAP.example.com/">
                    <soapenv:Header/>
@@ -197,4 +197,5 @@ public class PipeRouteTest extends AbstractTest {
                 .contentType(ContentType.XML)
                 .body(is(responseXML));
     }
+}
 
