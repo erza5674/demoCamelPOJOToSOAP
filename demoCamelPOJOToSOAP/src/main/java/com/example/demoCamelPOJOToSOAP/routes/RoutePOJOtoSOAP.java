@@ -82,7 +82,9 @@ public class RoutePOJOtoSOAP extends RouteBuilder {
                         .process(requestHandlerProcessor)
                         .removeHeader("CamelCxfMessage")
                         .removeHeader("CamelAuthentication")
-                        .to(externalEndpoint)
+                        .log("Sending body: " + body().toString())
+                        .log("Sending header: " + "${headers}" )
+                        .to(externalEndpoint).id("externalEndpoint")
                         .process(responseHandlerProcessor)
                     .end()
                 .log("end");

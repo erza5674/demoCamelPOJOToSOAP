@@ -6,6 +6,7 @@ import com.example.demoCamelPOJOToSOAP.processor.ResponseHandlerProcessor;
 import com.example.demoCamelPOJOToSOAP.processor.ResponseProcessor;
 import com.example.demoCamelPOJOToSOAP.service.CountryRepository;
 import com.example.demoCamelPOJOToSOAP.service.CountryService;
+import org.apache.camel.CamelContext;
 import org.apache.camel.component.cxf.common.DataFormat;
 import org.apache.camel.component.cxf.jaxws.CxfEndpoint;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ import java.util.Map;
 
 @Configuration
 public class SpringBootConfig {
+
+    @Autowired
+    CamelContext camelContext;
 
     @Autowired
     ApplicationContext applicationContext;
