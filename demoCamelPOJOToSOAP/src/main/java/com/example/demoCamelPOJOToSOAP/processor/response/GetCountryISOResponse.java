@@ -34,7 +34,7 @@ public class GetCountryISOResponse implements ResponseProcessor {
             log.info("Recived country :" + response.getSName().toString());
         }catch (NullPointerException e){
           log.info("Response is empty");
-          exchange.getIn().setBody("Recived nothing");
+          exchange.getIn().setBody("Recived nothing test");
           return;
         };
 

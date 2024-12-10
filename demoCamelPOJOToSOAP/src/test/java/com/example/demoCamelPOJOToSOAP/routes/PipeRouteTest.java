@@ -3,14 +3,21 @@ package com.example.demoCamelPOJOToSOAP.routes;
 import com.example.demoCamelPOJOToSOAP.AbstractTest;
 import io.restassured.http.ContentType;
 import org.apache.camel.CamelContext;
+import org.apache.camel.Exchange;
+import org.apache.camel.Expression;
 import org.apache.camel.builder.AdviceWith;
+import org.apache.camel.component.stub.StubEndpoint;
+import org.apache.cxf.message.MessageContentsList;
+import org.codehaus.groovy.ast.expr.ConstantExpression;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.oorsprong.websamples.TCountryInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static io.restassured.RestAssured.given;
+import static org.apache.camel.builder.Builder.simple;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -19,19 +26,29 @@ import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
 public class PipeRouteTest extends AbstractTest {
 
     @Autowired
-    private CamelContext camelContext; //Контекст цепляется для AdwiseWith цыганской магии. Бин определяется в конфиге
+    //Контекст цепляется для AdwiseWith цыганской магии. Бин определяется в конфиге но не уверен что это необходимо
+    private CamelContext camelContext;
 
     private static final String ROUTE_PATH = "/services/country";
 
-    //    private static String EXTERNAL_ENDPOINT_NAME_PATTERN = "cxf://http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?dataFormat=POJO&serviceClass=org.oorsprong.websamples_countryinfo.CountryInfoServiceSoapType&wsdlURL=classpath:wsdl/CountryInfoService.wsdl";
-    private static String EXTERNAL_ENDPOINT_NAME_PATTERN = "externalEndpoint";
+    //ID энпоинта TO в который мы отправим наш запрос. ID определен в роуте
+    private static String EXTERNAL_ENDPOINT_ID = "externalEndpoint";
 
+
+    //Это требуется для AdwiceWith манипуляций, что бы подменить эндпоинт в тестируемом роуте
     @BeforeEach
     public void beforeEach() throws Exception {
+        //Подготавливаем объект, который разбирает наш респонсПроцессор
+        TCountryInfo tCountryInfo = new TCountryInfo();
+        tCountryInfo.setSName("Poland");
 
-        //TODO тут по идее надо подменить ендпоинт который отправляет данные на внешний соап сервер
-        AdviceWith.adviceWith(this.camelContext, "CountryRoute", route -> {
-            route.weaveById(EXTERNAL_ENDPOINT_NAME_PATTERN).replace().to("stub:services/country"); //подменяем продюсер эндпоинт на мок
+        //тут надо подменить отправку в продюсер эндпроин стабом. И в стабе подставить бади и хедер которые нам нужны
+        AdviceWith.adviceWith(this.camelContext, "CountryRoute", route -> { //передаем контекст, роут ID
+            route.weaveById(EXTERNAL_ENDPOINT_ID) //тут завязывается на ID эндпоинта который хотим каким либо образом изменить
+                    .replace()
+                    .to("stub:/FullCountryInfo")//здесь стабим через DSL куда будем отправлять
+                    .setBody(exchange -> tCountryInfo) //в бади запихиваем заранее подготовленный объект, который должен вернуть стаб
+                    .setHeader("Country", simple("GotlandHeader")); //можно и в хедер всякое подставить
         });
         camelContext.start();
     }
@@ -39,6 +56,7 @@ public class PipeRouteTest extends AbstractTest {
     @Test
     void TestMockForProvider() {
 
+        //Сообщение которое отправим в наш роут
         final String requestXML = """
                 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.demoCamelPOJOToSOAP.example.com/">
                    <soapenv:Header/>
@@ -50,14 +68,18 @@ public class PipeRouteTest extends AbstractTest {
                    </soapenv:Body>
                 </soapenv:Envelope>
                 """;
+
+        //Сообщение которое мы ожидаем на выходе из роута
         final String responseXML = """
                 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><ns1:addCountryByISOResponse xmlns:ns1="http://service.demoCamelPOJOToSOAP.example.com/"><ns2:return xmlns:ns2="http://service.demoCamelPOJOToSOAP.example.com/">Recived country Poland</ns2:return></ns1:addCountryByISOResponse></soap:Body></soap:Envelope>""";
 
+        //Сообщение, которое мы подставим в WireMock stub
         final String stubResponseXML = """
                 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><ns1:addCountryByISOResponse xmlns:ns1="http://service.demoCamelPOJOToSOAP.example.com/"><ns2:return xmlns:ns2="http://service.demoCamelPOJOToSOAP.example.com/">Recived country Gotland!</ns2:return></ns1:addCountryByISOResponse></soap:Body></soap:Envelope>""";
 
+        //Stub через WireMock
         stubFor(
-                any(urlEqualTo("/services/country"))
+                any(urlEqualTo("/FullCountryInfo"))
                         .willReturn(
                                 ok()
                                         .withHeader(CONTENT_TYPE, APPLICATION_XML_VALUE)
@@ -65,6 +87,7 @@ public class PipeRouteTest extends AbstractTest {
                         )
         );
 
+        //Запуск роута с ассертом в конце
         given()
                 .body(requestXML)
                 .post(ROUTE_PATH)
